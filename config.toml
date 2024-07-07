@@ -59,6 +59,7 @@ menu_pages = [
     { title = "全部教程", url = "/" },
     { title = "关于本站", url = "/pages/about/" },
     { title = "资源汇总", url = "/pages/resource/" },
+    { title = "重定向学院", url = "https://itest.info" },
 ]
 
 # The pages that appear in the footer
