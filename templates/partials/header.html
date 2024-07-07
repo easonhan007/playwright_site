@@ -6,7 +6,7 @@
 {% endif %}
 
 <header class="sticky top-0 w-full z-10">
-  <nav class="bg-gray-600">
+  <nav class="bg-emerald-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
@@ -24,9 +24,9 @@
               {% if config.extra.menu_pages %}
                 {% for entry in config.extra.menu_pages %}
                   {% if entry.url == current_path %}
-                    <span aria-current="page" class="px-3 py-2 ml-2 rounded-md font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-600">{{ entry.title }}</span>
+                    <span aria-current="page" class="px-3 py-2 ml-2 rounded-md font-medium text-white bg-emerald-600 focus:outline-none focus:text-white focus:bg-emerald-600">{{ entry.title }}</span>
                   {% else %}
-                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-600" href="{{ entry.url | safe }}" title="{{ entry.title }}">{{ entry.title }}</a>
+                    <a class="px-3 py-2 ml-2 rounded-md font-medium text-gray-100 hover:text-white hover:bg-emerald-600 focus:outline-none focus:text-white focus:bg-emerald-600" href="{{ entry.url | safe }}" title="{{ entry.title }}">{{ entry.title }}</a>
                   {% endif %}
                 {% endfor %}
               {% endif %}
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="-mr-2 flex md:hidden">
-          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" aria-label="{{ res.aria_menu }}">
+          <button id="toggleMobileMenu" class="icon inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-emerald-600 focus:outline-none focus:bg-emerald-600 focus:text-white" aria-label="{{ res.aria_menu }}">
             <span id="mobile-icon-menu-unselected">
               <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

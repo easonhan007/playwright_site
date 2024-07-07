@@ -1,38 +1,22 @@
 +++
-date = 2019-03-11
+date = 2024-07-07
 title = "About"
-description = "Who I am and what this site is all about"
+description = "为什么会创建playwright教程站"
 template = "page.html"
-authors = ["Thomas Weitzel"]
+authors = ["乙醇"]
 +++
 
-## Who am I?
-My name is **Thomas Weitzel**.
-When people have trouble pronouncing my last name, I suggest to try _White Cell_.
-If you want to call me by my nickname, that's fine, too.
-It is **Thomy**, pronounced like _Tommy_.
+## 为什么会创建 playwright 教程站
 
-I work as an independent software developer since more than twenty years.
-Industries I've worked in include Finance, Health Care, Automotive, Military, and Government.
-Mostly I worked on internal projects, but also some software products.
-My mother tongue is German.
+playwright 是 2024 年最值得学习的自动化测试工具，然而中文的资料非常有限，所以我创建了这个站点，希望可以一直维护下去。
 
-## What's the topic?
-This blog covers my findings while exploring various aspects of programming in general, with a special focus on functional programming.
+## 作者是谁
 
-## The motivation?
-Why do people climb mountains?
-British mountaineer George Mallory famously answered: *Because they're there*.
-They want to reach the top faster, in a more efficient or elegant way, differently than anybody else, or even at all.
-That's how you approach problem-solving in programming.
+作者是乙醇，我创建和录制过很多教程，你可以在下面的地方找到我。
 
-## What to expect
-Since I'm coming from an object-oriented background, expect all sorts of problems I'm stumbling into and then getting out of.
-C, C++, and Java were my first professionally used programming languages.
-Later I switched to Scala, and even later to Kotlin.
-I had, and still have, a lot to learn, even more to unlearn, and I'm not nearly done yet.
-If you're having a similar background, maybe you can get something out of my mistakes and the occasional success.
+## 文章来源
 
-## _Do, or not do. There is no try_. &ndash; Yoda
-The decision is not between doing something or not.
-It's that *trying* is something more than just any attempt.
+文章主要来源两个地方
+
+- 原创
+- 翻译，所有的翻译资料都会加上翻译标签，并尽量保留原始链接
