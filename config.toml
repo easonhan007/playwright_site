@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://example.org"
+base_url = "https://playwright.itest.info"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
@@ -18,7 +18,7 @@ build_search_index = false
 generate_feeds = true
 
 # The taxonomies to use for the site
-taxonomies = [{ name = "tags", paginate_by = 8, feed = true }]
+taxonomies = [{ name = "tags", paginate_by = 12, feed = true }]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -33,9 +33,7 @@ extra_syntaxes_and_themes = ["syntaxes"]
 # Put all your custom variables here
 
 # The title of the blog
-title = "Playwright教程网"
-
-meta_title = "Playwright教程网 | 做最好的playwright中文教程及资源站"
+title = "Playwright教程网 | By 重定向学院"
 
 # Path to the language resource files
 path_language_resources = "i18n/"
@@ -60,6 +58,7 @@ quote = { text = "做最好的playwright中文教程及资源站", author = "鲁
 # The main navigation menu
 menu_pages = [
     { title = "全部教程", url = "/" },
+    { title = "视频教程", url = "/tags/video" },
     { title = "关于本站", url = "/pages/about/" },
     { title = "资源汇总", url = "/pages/resource/" },
     { title = "重定向学院", url = "https://itest.info" },

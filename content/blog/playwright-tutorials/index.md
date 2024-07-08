@@ -4,7 +4,7 @@ title = "playwright入门视频教程 by 虫师"
 description = "快速入门playwright的系列视频教程"
 authors = ["乙醇"]
 [taxonomies]
-tags = ["playwright基础"]
+tags = ["playwright基础", "video"]
 [extra]
 math = false
 image = "banner.avif"
