@@ -61,6 +61,11 @@
   .prose p {
     @apply mt-4 text-lg;
   }
+
+  .prose li {
+    @apply text-lg py-2;
+  }
+
   .prose blockquote {
     @apply border-l-4 border-gray-600 pl-4 italic;
   }

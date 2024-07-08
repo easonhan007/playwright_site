@@ -12,11 +12,13 @@ playwright 是 [2024 年最值得学习的自动化测试工具](https://www.ite
 
 ## 作者是谁
 
-作者是乙醇，我创建和录制过很多[教程](https://www.bilibili.com/video/BV1ZK4y1x7XK/)，你可以在下面的地方找到我。
+作者是乙醇和虫师(就是那个博客园的虫师)，我创建和录制过很多[教程](https://www.bilibili.com/video/BV1ZK4y1x7XK/)，你可以在下面的地方找到我。
 
-- [博客园](https://www.cnblogs.com/nbkhic)
+- [乙醇的博客园](https://www.cnblogs.com/nbkhic)
+- [虫师博客园](https://www.cnblogs.com/fnng)
 - [乙醇的博客](https://zh.ethanhan.cc/)
 - [乙醇在 b 站录教程](https://zh.ethanhan.cc/)
+- [虫师在 b 站录教程](https://space.bilibili.com/524416851)
 
 ## 文章来源
 
