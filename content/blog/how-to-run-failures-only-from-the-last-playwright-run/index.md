@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright进阶", "翻译"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 # 如何通过 CLI 仅运行上次 Playwright 运行中的失败

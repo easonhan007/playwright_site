@@ -1,12 +1,26 @@
 {% set banner = "/img/default-banner.jpg" %}
 {% if page.extra.image is defined %}
-  {% set banner = page.path ~ page.extra.image %}
+  {% if "http" in page.extra.image %}
+    {% set banner = page.extra.image %}
+  {% else %}
+    {% set banner = page.path ~ page.extra.image %}
+  {% endif %}
+{% endif %}
+
+{% if "http" in banner %}
+  {% set cropped = banner %}
+{% else %}
+  {% set cropped = resize_image(path=banner, width=292, height=192, op="fit" )%}
 {% endif %}
 
 <div class="flex flex-col rounded-md shadow-md overflow-hidden">
   <div class="flex-shrink-0">
     <a href="{{ page.permalink }}" aria-label="{{ page.title | default(value=res.empty_page_title) }}">
-      <img class="h-48 w-full object-cover" src="{{ banner }}" alt="{{ page.title | default(value=res.empty_page_title) }}" loading="lazy"/>
+    {% if "http" in banner %}
+      <img class="h-48 w-full object-cover" src="{{ cropped }}" alt="{{ page.title | default(value=res.empty_page_title) }}" loading="lazy"/>
+    {% else %}
+      <img class="h-48 w-full object-cover" src="{{ cropped.url }}" alt="{{ page.title | default(value=res.empty_page_title) }}" loading="lazy"/>
+    {% endif %}
     </a>
   </div>
   <div class="flex-1 bg-white p-6 flex flex-col justify-between">

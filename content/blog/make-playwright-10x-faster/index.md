@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright进阶", "翻译"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 在这篇文章中，我将解释如何使用 Playwright 将测试速度提高**至少 10 倍**。

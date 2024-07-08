@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright进阶", "翻译"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 最近我遇到了一个问题，我想与我正在测试的系统中的一个具有“复制到剪贴板”功能的部分交互。这具体是一个我可以生成然后分享的链接。这个部分是我们客户入职流程的一部分，我们认为需要对此进行自动化检查。

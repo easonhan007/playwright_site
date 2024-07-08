@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright进阶", "翻译"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 我知道我之前遇到过很多次这个问题。感觉就像是在比赛中选择元素并快速查看控制台以实际获取元素名称。

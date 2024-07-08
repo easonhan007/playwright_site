@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright进阶", "翻译"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 在使用 Playwright 进行页面测试时，有时我需要验证输入框中是否已经预先填充了文本，以确保我的系统正常运行。

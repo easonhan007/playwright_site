@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright基础", "video"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 ## 虫师录制的 playwright 系列入门视频

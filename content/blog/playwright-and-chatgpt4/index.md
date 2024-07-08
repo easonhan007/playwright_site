@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright进阶"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 之前介绍过一个使用 chatgpt4 分析 dom，然后生成 puppeteer 代码进行自动化的测试工具 Taxy AI。今天发现有人推荐了一个使用 chatgpt4 生成 playwright 代码的测试工具[BrowserGPT](https://github.com/mayt/BrowserGPT)，稍微看了一下，原理比较简单，比较适合我们去研究一下，顺便打开思路。

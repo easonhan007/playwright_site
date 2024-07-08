@@ -7,7 +7,7 @@ authors = ["乙醇"]
 tags = ["playwright基础"]
 [extra]
 math = false
-image = "banner.avif"
+image = "banner.jpg"
 +++
 
 playwright 是微软推出的一款 ui 自动化测试工具(浏览器自动化测试工具)，据说开发小组的核心人员来自 google 的 puppeteer 团队，真是一出生就有了个好爹而且好爹的亲爹也是爹中的战斗机，这就让人非常期待了。
