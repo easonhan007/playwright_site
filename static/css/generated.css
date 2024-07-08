@@ -516,6 +516,18 @@ video {
   line-height: 1.75rem;
 }
 
+.prose em {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.prose hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .prose blockquote {
   border-left-width: 4px;
   --tw-border-opacity: 1;

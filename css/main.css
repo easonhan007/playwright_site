@@ -66,6 +66,14 @@
     @apply text-lg py-2;
   }
 
+  .prose em {
+    @apply text-base py-4;
+  }
+
+  .prose hr {
+    @apply my-4;
+  }
+
   .prose blockquote {
     @apply border-l-4 border-gray-600 pl-4 italic;
   }
