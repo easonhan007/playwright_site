@@ -17,3 +17,4 @@ target/
 .fleet/*
 *.iws
 *.iml
+deploy.py
