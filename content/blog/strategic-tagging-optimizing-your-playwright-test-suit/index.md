@@ -1,7 +1,7 @@
 +++
 date = 2024-07-09
 title = "如何用标签来优化你的 Playwright 测试套件"
-description = ""
+description = "你是否发现自己每次都在运行完整的自动化测试套件?利用标签(tags)可以精准过滤一部分用例来加速这一过程。"
 authors = ["乙醇"]
 [taxonomies]
 tags = ["playwright进阶", "翻译"]
