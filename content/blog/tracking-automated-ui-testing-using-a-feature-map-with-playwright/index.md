@@ -1,7 +1,7 @@
 +++
 date = 2024-07-08
 title = "使用 Playwright 的feature map框架改进 UI测试用例的可观测性"
-description = ""
+description = "用feature map在代码里自动列出哪些功能已经被测试过了"
 authors = ["乙醇"]
 [taxonomies]
 tags = ["playwright进阶", "翻译"]

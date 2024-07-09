@@ -50,13 +50,17 @@
     @apply font-bold;
   }
   .prose h1 {
-    @apply text-2xl font-bold mt-8;
+    @apply text-3xl font-bold mt-8;
   }
   .prose h2 {
-    @apply text-xl font-bold mt-8;
+    @apply text-2xl font-bold mt-8;
   }
   .prose h3 {
-    @apply font-bold mt-8;
+    @apply text-xl font-bold mt-8;
+  }
+
+  .prose h4 {
+    @apply font-semibold mt-8 text-lg;
   }
   .prose p {
     @apply mt-4 text-lg;
@@ -67,7 +71,7 @@
   }
 
   .prose em {
-    @apply text-base py-4;
+    @apply text-base py-4 font-semibold;
   }
 
   .prose hr {
