@@ -1,5 +1,5 @@
 +++
-date = 2024-07-09
+date = 2023-10-20
 title = "playwright的各种规范"
 description = "Houseful 的 Playwright 测试规范，值得学习"
 authors = ["乙醇"]

@@ -1,5 +1,5 @@
 +++
-date = 2024-07-08
+date = 2023-08-02
 title = "为什么我从 Cypress 转向了 Playwright "
 description = "playwright比cypress其实更加现代一些"
 authors = ["乙醇"]

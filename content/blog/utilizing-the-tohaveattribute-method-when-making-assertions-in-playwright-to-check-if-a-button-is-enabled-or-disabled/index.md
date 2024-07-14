@@ -1,5 +1,5 @@
 +++
-date = 2024-07-08
+date = 2023-02-27
 title = "如何playwright去检查按钮或者控件是否被禁用"
 description = "利用 toHaveAttribute() 方法在 Playwright 中进行断言，以检查按钮是否启用或禁用"
 authors = ["乙醇"]

@@ -1,10 +1,10 @@
 +++
-date = 2024-07-07
+date = 2024-07-11
 title = "playwright简介"
 description = "playwright是什么，python版本的playwright如何安装和使用"
 authors = ["乙醇"]
 [taxonomies]
-tags = ["playwright基础"]
+tags = ["playwright基础", "python"]
 [extra]
 math = false
 image = "banner.jpg"

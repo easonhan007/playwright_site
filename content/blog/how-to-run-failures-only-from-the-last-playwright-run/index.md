@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2024-06-03
 title = "如何通过CLI仅运行上次Playwright运行中的失败"
 description = "省流/TLDR; npx playwright test --last-failed"
 authors = ["乙醇"]

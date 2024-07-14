@@ -1,5 +1,5 @@
 +++
-date = 2024-07-09
+date = 2023-03-24
 title = "如何通过 Playwright 模拟特定响应的 HTTP 网络请求"
 description = "playwright的常见套路就是拦截网络请求，然后mock返回值"
 authors = ["乙醇"]

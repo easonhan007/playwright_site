@@ -1,5 +1,5 @@
 +++
-date = 2024-07-08
+date = 2024-04-04
 title = "如何使用 Playwright 进行LLM的提示词注入测试"
 description = "作者用 playwright 调用 llm 的 api，然后实现了一些断言，用来检查 llm 是否存在注入的问题"
 authors = ["乙醇"]

@@ -1,5 +1,5 @@
 +++
-date = 2024-07-09
+date = 2024-03-01
 title = "如何在Playwright中使用分片"
 description = "sharding也就是分片技术会让playwright的执行速度更快，另外本文也描述了如何在Github Actions里使用分片技术"
 authors = ["乙醇"]

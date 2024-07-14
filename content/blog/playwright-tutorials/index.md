@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2024-07-11
 title = "playwright入门视频教程 by 虫师"
 description = "快速入门playwright的系列视频教程"
 authors = ["乙醇"]

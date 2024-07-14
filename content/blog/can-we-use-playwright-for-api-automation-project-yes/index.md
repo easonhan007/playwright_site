@@ -1,5 +1,5 @@
 +++
-date = 2024-07-09
+date = 2023-11-16
 title = "Playwright可以做API测试吗？当然可以✌️"
 description = "如何使用playwright从零开始一个 API 自动化测试项目"
 authors = ["乙醇"]

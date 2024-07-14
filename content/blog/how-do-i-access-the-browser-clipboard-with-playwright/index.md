@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2023-01-09
 title = "如何使用 playwright 访问浏览器的剪切板"
 description = "用javascript就可以了，不过如何绕过授权是个问题"
 authors = ["乙醇"]

@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2024-07-11
 title = "使用chatgpt4结合playwright进行智能化ui自动化测试"
 description = "使用ai来增强playwright"
 authors = ["乙醇"]

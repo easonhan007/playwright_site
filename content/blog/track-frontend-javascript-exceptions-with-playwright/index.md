@@ -1,5 +1,5 @@
 +++
-date = 2024-07-09
+date = 2023-11-20
 title = "Playwright中如何使用fixture来监控前端的javascript错误"
 description = "简单来说就是用fixture先监听pageerror事件，然后在用例中断言没有错误出现"
 authors = ["乙醇"]

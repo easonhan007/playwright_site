@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2024-07-11
 title = "playwright和selenium的区别"
 description = "playwright和selenium的区别是什么？playwright会取代selenium吗？"
 authors = ["乙醇"]

@@ -1,5 +1,5 @@
 +++
-date = 2024-07-08
+date = 2023-12-25
 title = "使用Playwright进行API契约测试"
 description = "api契约测试其实并不神秘，playwright就可以做的很好"
 authors = ["乙醇"]

@@ -1,5 +1,5 @@
 +++
-date = 2024-07-08
+date = 2022-03-13
 title = "playwright里如何快速确定该使用多少个worker运行用例"
 description = "默认情况下playwright会自动指定workder的数量"
 authors = ["乙醇"]

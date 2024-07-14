@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2023-05-22
 title = "如何使用playwright检查输入框中的内容"
 description = "用自带的toHaveValue()断言就可以了，但是hack的方式也是需要掌握的"
 authors = ["乙醇"]

@@ -1,5 +1,5 @@
 +++
-date = 2024-07-07
+date = 2024-07-11
 title = "如何让 playwright 运行的更快"
 description = "使用这些技术可以让 playwright 运行速度快 10 倍"
 authors = ["乙醇"]

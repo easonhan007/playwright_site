@@ -1,5 +1,5 @@
 +++
-date = 2024-07-09
+date = 2023-09-25
 title = "如何使用共享session来加速 Playwright 运行速度"
 description = "本质就是减少浏览器频繁打开和关闭"
 authors = ["乙醇"]
