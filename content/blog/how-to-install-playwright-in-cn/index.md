@@ -66,7 +66,7 @@ npm init playwright@latest
 - projects 选择 chrome
 - settings 里面选择`show trace viewer`
 
-打开`tests`文件夹下的`test-1.spec.ts`文件。
+打开`tests`文件夹下的`example.spec.ts`文件。
 
 然后点击`test`方法旁的三角形按钮，就可以运行用例了。
 
@@ -74,4 +74,21 @@ npm init playwright@latest
 
 在运行默认用例时可能因为网络原因出现失败的情况，这时候可以把第 1 个用例改一下。
 
+```javascript
+test("has title", async ({ page }) => {
+  await page.goto("https://playwright.itest.info/");
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
+```
+
 我们把用例里的`playwrgith.dev`改成`playwright.itest.info`，再次运行，不出意外的话用例会成功运行通过 ✅。
+
+## 思考题
+
+```javascript
+await expect(page).toHaveTitle(/Playwright/);
+```
+
+用中文去说明这个断言的具体检查了什么内容？
