@@ -14,8 +14,8 @@ image = "banner.jpg"
 
 ### Youtube
 
-<div class="w-full md:w-1/2 mx-auto">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FimMK3jszAo?si=N9aN6KZaIH2Rgn2r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="w-full md:w-1/3 mx-auto">
+<iframe width="360" height="315" src="https://www.youtube.com/embed/FimMK3jszAo?si=N9aN6KZaIH2Rgn2r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 ### B 站
