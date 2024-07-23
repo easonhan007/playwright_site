@@ -1,5 +1,5 @@
 +++
-date = 2024-07-22
+date = 2024-07-23
 title = "如何安装playwright 2024版本"
 description = "先要装nodejs，在国内完整安装有难度"
 authors = ["乙醇"]
@@ -26,6 +26,8 @@ image = "banner.jpg"
 
 如果你对命令行不熟悉，那么 win 11 系统里，随便打开 1 个文件夹，鼠标右键打开系统菜单，选择`在终端中打开`就可以了。
 
+我们在终端里输入下面的命令，大部分情况下，不需要我们手动一个字符一个字符输入，只要在 playwright 中文站的安装教程里拷贝具体的命令，然后右键点击终端就可以粘贴了。
+
 ```bash
 npm config set registry https://registry.npmmirror.com
 ```
@@ -49,12 +51,27 @@ npm init playwright@latest
 - ✔ Add a GitHub Actions workflow? (y/N) · false
 - ✔ Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) · true
 
+等待一段时间后就可以看到 playwright 已经安装成功了。
+
 ## 安装 vscode 以及 playwright 插件
 
 这一步不是必须的，但如果你不熟悉命令行的话，那么还是非常推荐的。
 
-## 使用 vscode 打开 pw_demo 文件夹
+在 vscode 插件市场搜索 playwright 插件，安装微软官方出的那个插件，一般情况下就是排第 1 位的那个。
+
+## 使用 vscode 打开 demo 文件夹
+
+首先用 vscode 打开我们刚才新建的 demo 项目，然后在进行下面的配置。
+
+- projects 选择 chrome
+- settings 里面选择`show trace viewer`
 
 打开`tests`文件夹下的`test-1.spec.ts`文件。
 
-在 playwright 插件里设置`Show trace viewer`，然后点击`test`方法旁的三角形按钮，就可以运行用例了。
+然后点击`test`方法旁的三角形按钮，就可以运行用例了。
+
+## 运行用例
+
+在运行默认用例时可能因为网络原因出现失败的情况，这时候可以把第 1 个用例改一下。
+
+我们把用例里的`playwrgith.dev`改成`playwright.itest.info`，再次运行，不出意外的话用例会成功运行通过 ✅。
