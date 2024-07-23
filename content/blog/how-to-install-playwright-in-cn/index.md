@@ -14,36 +14,35 @@ image = "banner.jpg"
 
 ## 安装 nodejs
 
-首先我们需要安装 nodejs，这里略过。
+首先我们需要安装 [nodejs](https://nodejs.org/zh-cn)，这里略过。
 
-## 打开命令行
+我的安装的版本是`Node.js v20.15.1`。
 
-很多同学不会打开命令行输入命令。这里我提供 2 个方法。
+## 最重要的步骤：设置 npm 源
 
-### win + R，然后输出 cmd
+**对于国内用户来说，这一步至关重要，是解决网络联通性的关键。**
 
-大部分的版本的 windows 都可以使用 win+r 快捷键，然后输入 cmd，打开命令行。
+打开命令行，输入下面的命令。
 
-### 按 win 键，然后搜索 cmd
+如果你对命令行不熟悉，那么 win 11 系统里，随便打开 1 个文件夹，鼠标右键打开系统菜单，选择`在终端中打开`就可以了。
 
-win11 系统可以直接搜索 cmd，然后点击命令行应用。
+```bash
+npm config set registry https://registry.npmmirror.com
+```
 
 ## 使用 npm 安装 playwrgiht
 
-新建 1 个文件夹 `pw_demo`，然后从命令行里`cd`进去，再运行下面的命令。
+如果你对命令行熟悉的话，可以新建 1 个文件夹 `demo`，然后从命令行里`cd`进去，再运行下面的命令。
+
+如果你对命令行不熟悉，那么 win 11 系统里，我们可以新建 1 个文件夹 `demo`，进入 demo 文件夹，鼠标右键打开系统菜单，选择`在终端中打开`就可以了。
 
 ```bash
-npm init playwright@latest --registry=https://registry.npmmirror.com
+npm init playwright@latest
 ```
-
-我自己实验了一下，发现 2 个问题
-
-- 晚上的时候这个命令执行速度会非常慢，可能会经常超时
-- 我在网络正常的情况下完成安装总耗时**6-8 分钟**，所以要保持耐心
 
 ### 安装选项
 
-命令运行时会出现 4 个问题，除了第 1 个问题要选择 TypeScript 之外，其他的都按 Enter 选择默认值
+命令运行时会出现 4 个问题，全部按 Enter 选择默认值
 
 - ✔ Do you want to use TypeScript or JavaScript? · TypeScript
 - ✔ Where to put your end-to-end tests? · tests
