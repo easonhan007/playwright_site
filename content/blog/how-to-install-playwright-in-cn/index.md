@@ -4,11 +4,25 @@ title = "如何安装playwright 2024版本"
 description = "先要装nodejs，在国内完整安装有难度"
 authors = ["乙醇"]
 [taxonomies]
-tags = ["playwright基础"]
+tags = ["playwright基础", "video"]
 [extra]
 math = false
 image = "banner.jpg"
 +++
+
+## 视频版本
+
+### Youtube
+
+<div class="w-full md:w-1/2 mx-auto">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FimMK3jszAo?si=N9aN6KZaIH2Rgn2r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+### B 站
+
+<div class="w-full md:w-1/3 mx-auto">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1006395903&bvid=BV1Zx4y1W7CZ&cid=1624499655&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
 
 这几天录视频，在 windows 电脑上试着去安装了一下 javascript 版本的 playwright，发现有点难度，主要是网络联通性有挑战，这里简单记录一下。
 
