@@ -53,7 +53,7 @@ copyright = "Copyright {year} by 重定向学院"
 site_description = "playwright 教程, playwright 中文,  playwright 使用, playwright 是什么, playwright 爬虫"
 
 # The quote shown on banner
-quote = { text = "做最好的playwright中文教程及资源站", author = "鲁迅" }
+quote = { text = "做最好的playwright中文教程及资源站", author = "" }
 
 # The main navigation menu
 menu_pages = [
