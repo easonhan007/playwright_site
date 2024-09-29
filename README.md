@@ -26,6 +26,7 @@ you can choose your preferred language setting for a consistent blog experience.
 ---
 
 ## Table of Contents:
+
 - [Demo Website](#demo-website)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -58,7 +59,7 @@ In order to use the theme, you need some software pre-installed:
 - [Zola](https://github.com/getzola/zola/releases), a fast static site generator.
 
 - an editor or integrated development environment of your choice - I use [JetBrains IDEA](https://www.jetbrains.com/idea/download),
-  an IDE that makes development a more productive and enjoyable experience. 
+  an IDE that makes development a more productive and enjoyable experience.
 
 ---
 
@@ -70,7 +71,7 @@ In order to use the theme, you need some software pre-installed:
 2. Make adjustments to the `config.toml` file as needed.
    In order to run the theme as a standalone site, you need to adjust the `base_url` to your domain.
    If you want to try it out on your local machine, you can leave it as is.
-   Just run `zola serve` from the theme's root directory. 
+   Just run `zola serve` from the theme's root directory.
 
 ---
 
@@ -171,15 +172,15 @@ If you do not provide an image under `extra.image`, a default image is used inst
 - **date**: the date of the blog posts, e.g. `2020-06-11`.
 
 - **title**: the title of the blog posts, e.g. `The Game of Fifteen`.
- 
+
 - **description**: the description of the blog posts. It is used as a summary on the blog's main page.
- 
+
 - **authors**: an optional array of all the posts authors, e.g. `["Thomas Weitzel"]`.
   You can leave it empty, but then the first author will show up as `Unknown` in the feed (`atom.xml`).
 
 - **taxonomies**: only the optional `tags` taxonomy is used by this theme.
   I tend to list programming languages used in the post, e.g. `["rust", "javascript"]`.
-  You can omit it, but then the post will not show up under `tags`. 
+  You can omit it, but then the post will not show up under `tags`.
 
 - **extra.math**: either `false` (default) or `true`.
   If set to `true`, the post will be rendered with KaTex support for displaying math formulas.
@@ -333,7 +334,7 @@ I recommend to have two terminals open.
 In one terminal, run `zola serve` to start the Zola server.
 In the other terminal, run `npm run css:watch` to start the CSS generation whenever a relevant file changes.
 
-That way, your local web browser will automatically reload  the page with the updated CSS whenever you change a file.
+That way, your local web browser will automatically reload the page with the updated CSS whenever you change a file.
 
 ---
 
@@ -350,7 +351,7 @@ This makes it possible to apply multiple utility styles within a single class, m
 This approach has pros and cons.
 But it gives me fine-grained control over how the end result looks like.
 While it is time-consuming, I prefer this solution over the `@tailwindcss/typography` plugin.
- 
+
 Yes, I'm reinventing the wheel here, because for common typographic patterns, I'm just recreating what's already provided by the typography plugin.
 
 ### Serve KaTex files locally
