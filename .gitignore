@@ -3,6 +3,7 @@ logs/
 *.zip
 *~
 *.lock
+scripts/__pycache__/
 
 # Project
 node_modules/
