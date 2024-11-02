@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Playwright tips and tricks #3</title>
+    <link rel="stylesheet" href="/assets/built/screen.css?v=d6f66aae46">
+
+    <meta name="description" content="Get more details about your test during test run. How to use Playwright to test multiple browser windows. Promise.all in Playwright">
+    <link rel="icon" href="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" type="image/jpeg">
+    <link rel="canonical" href="https://blog.martioli.com/playwright-tips-and-tricks-3/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Martioli">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Playwright tips and tricks #3">
+    <meta property="og:description" content="Get more details about your test during test run. How to use Playwright to test multiple browser windows. Promise.all in Playwright">
+    <meta property="og:url" content="https://blog.martioli.com/playwright-tips-and-tricks-3/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:published_time" content="2024-04-04T16:14:54.000Z">
+    <meta property="article:modified_time" content="2024-04-04T16:14:54.000Z">
+    <meta property="article:tag" content="Playwright">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Playwright tips and tricks #3">
+    <meta name="twitter:description" content="Get more details about your test during test run. How to use Playwright to test multiple browser windows. Promise.all in Playwright">
+    <meta name="twitter:url" content="https://blog.martioli.com/playwright-tips-and-tricks-3/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Adrian Maciuc">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Playwright">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Martioli",
+        "url": "https://blog.martioli.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Adrian Maciuc",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.martioli.com/content/images/2024/01/adi-profile.jpg",
+            "width": 1200,
+            "height": 1265
+        },
+        "url": "https://blog.martioli.com/author/adrian/",
+        "sameAs": [
+            "http://www.martioli.com"
+        ]
+    },
+    "headline": "Playwright tips and tricks #3",
+    "url": "https://blog.martioli.com/playwright-tips-and-tricks-3/",
+    "datePublished": "2024-04-04T16:14:54.000Z",
+    "dateModified": "2024-04-04T16:14:54.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&ixlib=rb-4.0.3&q=80&w=2000",
+        "width": 1200,
+        "height": 800
+    },
+    "keywords": "Playwright",
+    "description": "It&#x27;s time to have a look under the hood of Playwright and understand a few details that will enhance our skills to be more creative.\n\n\n1. Get more details about your test during test run\n\nThere is a way that you can access some particular values related to your test in real time. Say you have a complex project that has a dynamic configuration based on environments, test-data or whatever other details, and you want to see during test run what particular values are set. You can do that by accessin",
+    "mainEntityOfPage": "https://blog.martioli.com/playwright-tips-and-tricks-3/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.75">
+    <link rel="alternate" type="application/rss+xml" title="Martioli" href="https://blog.martioli.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.36/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.martioli.com/" data-key="0781da3423523aaff7fa49a578" data-api="https://blog.martioli.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="0781da3423523aaff7fa49a578" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.martioli.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.martioli.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=d6f66aae46"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=d6f66aae46">
+    <script defer src="/public/comment-counts.min.js?v=d6f66aae46" data-ghost-comments-counts-api="https://blog.martioli.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=d6f66aae46"></script>
+    <!-- remove rss from page view -->
+<style>
+    a.icon.fa-rss {
+        display:none;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D6X7JZL8L2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D6X7JZL8L2');
+</script>
+
+<!-- piwik pro statistics -->
+<script type="text/javascript">
+(function(window, document, dataLayerName, id) {
+window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
+var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+tags.async=!0,tags.src="https://martioli.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+})(window, document, 'dataLayer', '916e2516-9978-4a19-9683-5b0742a8e583');
+</script>
+
+<!-- clap button -->
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+
+<!-- cloudflare -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- umami statistics -->
+<script defer src="https://analytics.eu.umami.is/script.js" data-website-id="9c978255-e564-40a5-b899-1ad13a6b2d0e"></script>
+<script defer src="https://eu.umami.is/script.js" data-website-id="015ece7c-520d-4c07-af21-13d4d1102edc"></script>
+<style>:root {--ghost-accent-color: #00a388;}</style>
+</head>
+
+<body class="post-template tag-playwright is-head-stacked has-serif-body">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.martioli.com">
+                            Martioli
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.martioli.com/">Home</a></li>
+    <li class="nav-about"><a href="https://blog.martioli.com/about/">About</a></li>
+    <li class="nav-more-cypress"><a href="https://blog.martioli.com/tag/cypress/">More Cypress</a></li>
+    <li class="nav-more-playwright"><a href="https://blog.martioli.com/tag/playwright/">More Playwright</a></li>
+    <li class="nav-recommended-resources"><a href="https://blog.martioli.com/#/portal/recommendations">Recommended Resources</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post tag-playwright featured">
+
+            <header class="gh-article-header gh-canvas">
+                    <a class="gh-article-tag" href="https://blog.martioli.com/tag/playwright/">Playwright</a>
+
+                <h1 class="gh-article-title">Playwright tips and tricks #3</h1>
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list">
+                <a class="gh-author-image" href="/author/adrian/">
+                        <img src="https://blog.martioli.com/content/images/2024/01/adi-profile.jpg" alt="Adrian Maciuc">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/adrian/">Adrian Maciuc</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2024-04-04">Apr 4, 2024</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">9 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                    https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                    https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                    https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                    https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
+            alt="Playwright tips and tricks #3"
+        >
+            <figcaption><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@alenjcreative?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Alen Jacob</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></figcaption>
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>It's time to have a look under the hood of Playwright and understand a few details that will enhance our skills to be more creative.</p><h2 id="1-get-more-details-about-your-test-during-test-run">1. Get more details about your test during test run</h2><p>There is a way that you can access some particular values related to your test in real time. Say you have a complex project that has a dynamic configuration based on environments, test-data or whatever other details, and you want to see during test run what particular values are set. You can do that by accessing <code>testInfo</code> object within the test. Here is a snippet of code example to see how to access it: </p><pre><code class="language-javascript">import { test } from "@playwright/test";
+
+test.describe('test suite name', () =&gt; {
+
+  test("test name", async ({ page }, testInfo) =&gt; {
+    console.log(`test name: ${testInfo.title}`)
+    console.log(`parallel index :${testInfo.parallelIndex}`)
+    console.log(`shard index: ${JSON.stringify(testInfo.config.shard)}`)
+  });
+});</code></pre><p>Below are some screenshots of other values you can access via <code>testInfo</code></p><p> </p><figure class="kg-card kg-image-card"><img src="https://blog.martioli.com/content/images/2024/03/image.png" class="kg-image" alt loading="lazy" width="561" height="660"></figure><figure class="kg-card kg-image-card"><img src="https://blog.martioli.com/content/images/2024/03/image-1.png" class="kg-image" alt loading="lazy" width="554" height="573"></figure><p>My <a href="https://blog.martioli.com/full-parallelization-with-playwright/" rel="noreferrer">article about parallelization</a> uses the power of this object to showcase particular values.</p><hr><h2 id="2-how-to-use-playwright-to-test-multiple-browser-windows">2. How to use Playwright to test multiple browser windows ?</h2><p>Here is a way you can test multiple windows. <strong>Not multiple tabs </strong>in the same window. But multiple windows, each with its own storage and cookies. A use case would be if your website has implemented chat functionalities, and you want to see if the messages are delivered correctly. You can have two browsers logged in with two users and have them talk with each other. How would we achieve that in Playwright in one single test?</p><p>By using our <code>browser</code> and <code>page</code> objects. Here is an example of code</p><pre><code class="language-js">import { test, expect } from "@playwright/test";
+
+test("Two users chat functionalities", async ({ browser }) =&gt; {
+    // we open two browsers each with its own storage and cookies
+    const user1Context = await browser.newContext()
+    const user1Page = await user1Context.newPage()
+    const user2Context = await browser.newContext()
+    const user2Page = await user2Context.newPage()
+
+    // we open the chat
+    await user1Page.goto("https://www.yourweb.com/chat")
+    await user2Page.goto("https://www.yourweb.com/chat")
+    // other login credentials details would go here
+
+    // we start talking with each other in sequence
+    
+    await user1Page.getById("input").type("Hello user 2")
+    await user1Page.getById("sendMsgBtn").click()
+    
+    await expect(user2Page.getByText("Hello user 2")).toBeVisible()
+    await user2Page.getById("input").type("Oh ! Hello user 1")
+    await user2Page.getById("sendMsgBtn").click()
+
+    await expect(user1Page.getByText("Oh ! Hello user 1")).toBeVisible()
+
+  });</code></pre><p>The chat is only an example of course, you can do as you wish in any other scenario you can think of. </p><h2 id="3-how-playwright-handles-multiple-tabs-in-the-same-browser">3. H<strong>ow Playwright handles multiple tabs in the same browser?</strong></h2><p>For instance where an element would have a property like <code>target="_blank"</code> that upon clicking it, will open a new tab, then <a href="https://playwright.dev/docs/pages?ref=blog.martioli.com#handling-new-pages" rel="noreferrer">refer to this at playwright docs</a>. If you find it hard to understand the <code>const pagePromise = context.waitForEvent('page')</code> just think of it as an event listener so it will not stop your test, it will just listen. Now right after you perform the click that opens the new tab put <code>const newPage = await pagePromise</code> there and from then on, you can use <code>newPage</code> the same as <code>user2Page</code> from my example above at point 2. Now you can cycle via <code>newPage</code> object or initial page object without the need to do any extra actions. Those of you who have done Selenium remember the switch back and forth with commands such as <code>driver.switchTo().window(actual)</code>, no need to do that here anymore. Here you have each page with its own object.</p><p>Also if you want to fully understand how to use this trick of "listening" for events such as a new page to open, I advise you pay close attention to point 6. It's not an easy one, but I am sure you will master it after you read the explanation.</p><hr><p>Remember that: </p><blockquote>browser.newContext() = new window (not yet complete browser, it still needs a tab)</blockquote><blockquote>context.newPage() = new tab</blockquote><p>Here are more examples to understand. Read the comments please.</p><pre><code class="language-js">import { test } from "@playwright/test";
+
+test("Multiple windows and tabs default way", async ({ page }) =&gt; {
+  // Default way of using playwright
+  // page comes with values about the browser you have setup in config. 
+  // Ready to go, no need for extra actions.
+  // this opens a window (context) and a tab (a page)
+  await page.goto("https://duckduckgo.com/") 
+  });</code></pre><pre><code class="language-js">import { test } from "@playwright/test";
+
+test("Multiple windows and tabs", async ({ browser }) =&gt; {
+  // this creates a new window but you can't perform actions
+  // with page2Context since its not yet complete, it still needs a tab 
+  const page2Context = await browser.newContext() 
+  
+  // we have a browser, we have a window we only need a tab. You do this:
+  const page2 = page2Context.newPage() 
+  });</code></pre><p>Try to mix it up: </p><pre><code class="language-js">import { test } from "@playwright/test";
+
+test("Multiple windows and tabs mix it", async ({ page, context, browser }) =&gt; {
+  // this opens normally a full browser with window and tab (default way)
+  await page.goto("https://duckduckgo.com/")
+  
+  // this creates a new tab from the same window (context) as line above
+  const page2 = await context.newPage()
+  await page2.goto("https://martioli.com/")
+
+  // this sets up a new browser window with a tab. 
+  // Independent from the lines above
+  const page3Context = await browser.newContext()
+  const page3 = await page3Context.newPage()
+  await page3.goto("https://github.com/adrianmaciuc")
+  });</code></pre><hr><h2 id="4-how-to-handle-multiple-types-of-browsers-inside-a-test">4. How to handle multiple types of browsers inside a test ?</h2><p>What I want to showcase below is not a way to test multiple browsers. There are far more efficient ways to do that. I am not sure if I will write about that because its fairly simple and the internet is full of such tutorials. But for the sake of getting our hands dirty and understanding how our browser instances are created, see below how you can play with various browsers directly inside your test scope. </p><pre><code class="language-js">import { test , webkit, firefox, chromium } from "@playwright/test";
+
+test("Multiple browser drivers", async () =&gt; {
+    const browser = await webkit.launch()
+    const context = await browser.newContext()
+    const page = await context.newPage()
+    await page.goto("https://martioli.com/")
+
+    const browser2 = await firefox.launch()
+    const context2 = await browser2.newContext()
+    const page2 = await context2.newPage()
+    await page2.goto("https://martioli.com/")
+  });</code></pre><p>Notice that there is no more { browser, page } . What happened here is we've pulled the webkit and firefox object inside the test scope. Its a bit of a stretch to do this. But for the purpose of us to understand and maybe develop in the future some creative ideas, it's good to know how it works. </p><p>Remember that, in a normal setup where you just use <code>test</code> , and then destructure <code>{ page }</code> the object will come with the values about the browser, that you have set inside your playwright config file or with the values that can be set dynamically in a terminal command or a pipeline.</p><p>To all JAVA lovers, remember these lines below?</p><pre><code class="language-java">import org.openqa.selenium.chrome.ChromeDriver;
+
+WebDriver driver = new ChromeDriver()
+driver.get("https://www.martioli.com")</code></pre><p>If you come with background of Java and Selenium then all of my points from above makes sense to you on how to instantiate and handle drivers. And you will also understand that we don't have to write anymore any other lines of code to get our driver object ready to work with. We don't <em>have </em>to, but if we want we still <em>can</em>.</p><hr><p></p><h2 id="5-can-i-override-playwright-configurations-from-within-my-test">5. Can I override Playwright configurations from within my test ?</h2><p>We all know that our file called <strong>playwright.config</strong> <a href="https://playwright.dev/docs/test-configuration?ref=blog.martioli.com" rel="noreferrer">holds the configuration</a> and helps us set the project up, and all of our tests will run with those configs. But what if <strong>I want to override the configurations only for one test</strong> or a suite of tests ? </p><p>What if I want a suite of tests to run with a set of configs and another with other set of configs ?</p><p>You can do that in <strong>two ways</strong>:</p><blockquote class="kg-blockquote-alt">The simple way. Create a <a href="https://playwright.dev/docs/test-projects?ref=blog.martioli.com" rel="noreferrer">project</a> and have all the <a href="https://playwright.dev/docs/test-use-options?ref=blog.martioli.com" rel="noreferrer">use options</a> written for that project</blockquote><p>An example for the first option, would be like this</p><pre><code class="language-js">import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  projects: [
+      name: 'whateverNameForProject',
+      use: {
+        ...devices['Desktop Chrome'],
+        colorScheme: 'dark',
+        locale: 'fr-FR',
+        httpCredentials: {
+          username: 'yourUser',
+          password: 'yourPass',
+        },
+        testIdAttribute: 'data-testid',
+      }
+    // any other config you would like goes here
+  ],
+});</code></pre><p>Whenever you run your tests it will by default run all tests against all projects. So be sure to specify which project you want to run with <code>--project=whateverNameForProject</code> </p><blockquote class="kg-blockquote-alt">The dirty way. Override config values from within your tests</blockquote><p>For the second option, imagine that you want a particular test suite or a spec file to have tests with a special setting for geolocation or viewports, maybe a test has some simple login credentials you have to bypass. In other words, whatever <a href="https://playwright.dev/docs/test-use-options?ref=blog.martioli.com" rel="noreferrer">you see here</a>, any of these values can be manipulated inside our tests. This is how you do it</p><pre><code class="language-js">import { test } from "@playwright/test";
+
+test.use({
+    geolocation: { longitude: 36.095388, latitude: 28.0855558 },
+    userAgent: 'my super secret Agent value'
+  })
+
+test("Override config", async ({ page }) =&gt; {
+    await page.goto("https://martioli.com/")
+})
+</code></pre><p>This will keep the rest of the settings and just override what you need.</p><blockquote>Easter Egg -&gt; let me know the name of the location I used here in the geolocation and you shall win the title as my golden reader</blockquote><p>If you want to have in the same spec file, multiple suites that each come with their own extra config you can do like this </p><pre><code class="language-js">import { test, expect, webkit, firefox, chromium } from "@playwright/test";
+
+test.describe('Override suite 1', () =&gt; {
+  test.use({
+    viewport: { width: 400, height: 810 },
+    geolocation: { longitude: 36.095388, latitude: 28.0855558 },
+    userAgent: 'my super secret Agent value'
+  });
+
+  test("Override test 1", async ({ page }) =&gt; {
+    await page.goto("https://martioli.com/")
+  })
+
+});
+
+test.describe('Override suite 2', () =&gt; {
+  test.use({
+    viewport: { width: 768, height: 1024 },
+    geolocation: { longitude: 36.095388, latitude: 28.0855558 },
+    userAgent: 'my second super secret Agent value nr 2'
+  });
+
+  test("Override test 2", async ({ page }) =&gt; {
+    await page.goto("https://martioli.com/")
+  })
+
+});</code></pre><p>If you want the same override config at spec file level, just move the test.use() at the top of the page and it will apply to all the suites inside the file.</p><p>Configurations can be also done via <a href="https://playwright.dev/docs/test-configuration?ref=blog.martioli.com#advanced-configuration" rel="noreferrer">globalSetup</a>. Its a more elegant and advanced way of doing things. I will probably do a blog post about it in the future.</p><p>Not that elegant but still another way to do it, you can pass in configuration override using context.</p><pre><code class="language-js">import { test, devices } from "@playwright/test";
+
+test("Override test 1", async ({ browser }) =&gt; {
+  const context = await browser.newContext({
+    ...devices['iPhone 13'],
+    isMobile: true
+  })
+  const page = await context.newPage()
+  await page.goto("https://martioli.com/")
+})
+
+</code></pre><hr><h2 id="6-promiseall-in-playwright">6. Promise.all in Playwright</h2><p>I want to address this because I keep seeing people doing their projects with Playwright and some do not fully understand when to use Promise.all() in Playwright. I am going to copy paste the best explanation below (not my words):</p><p>I'll use the <code>waitForResponse()</code> method to showcase</p><p>Let's say, we have a Search Input field and a button that triggers the search, eventually making a request to an API (<a href="https://example.com/api/search?ref=blog.martioli.com">https://example.com/api/search</a>, the search term is in the request body)</p><p>You would probably write something like this</p><pre><code class="language-javascript">await page.locator("button").click() // search button
+
+await page.waitForResponse("https://example.com/api/search")  </code></pre><p>With the above code, there's a (high) chance that we already received a response from <a href="https://example.com/api/search?ref=blog.martioli.com"><code>https://example.com/api/search</code></a> before we reached the <code>await page.waitForResponse("</code><a href="https://example.com/api/search?ref=blog.martioli.com"><code>https://example.com/api/search</code></a><code>")</code> line. The <code>.click()</code> method doesn't resolve immediately, but performs a range of (time-consuming) steps before resolving the await promise and continuing to the next line.</p><p>Await executes code asynchronous in sequence, one after another.</p><p>What we want here is for <code>await page.locator("button").click()</code> and <code>await page.waitForResponse("</code><a href="https://example.com/api/search?ref=blog.martioli.com"><code>https://example.com/api/search</code></a><code>")</code> to be executed at the same time - so that both can do their job properly.<br>That's where Promise.all() comes into play.</p><p>Promise.all() executes promises concurrently, meaning,</p><pre><code class="language-javascript">const [response] = await Promise.all([
+  page.locator("button").click(),
+  page.waitForResponse("https://example.com/api/search")  
+]);</code></pre><p>Executes both <code>.click()</code> and <code>.waitForResponse()</code> at the same time. The await Promise.all() as a whole only resolves when all of its argument promises passed. The issue we've noticed here is called race condition.</p><p>Many Playwright events <code>(.waitForRequest(), .waitForResponse(), .waitForEvent(), ...)</code> must execute concurrently with their triggers using Promise.all.</p><p>Here is <a href="https://github.com/microsoft/playwright/issues/5470?ref=blog.martioli.com#issuecomment-1285640689" rel="noreferrer">a link to the explanation</a> in full, thanks to <a href="https://github.com/advename?ref=blog.martioli.com" rel="noreferrer">advename</a></p><hr><p></p><p>Hit the clap button if you found this useful. Or even <a href="https://ko-fi.com/adrianmaciuc?ref=blog.martioli.com">buy me a coffee</a> if you want to motivate me even more.</p>
+<!--kg-card-begin: html-->
+<applause-button style="width: 58px; height: 58px" color="#3f9dff"></applause-button>
+<!--kg-card-end: html-->
+<p></p><p>Feel free to checkout other nice tips:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.martioli.com/playwright-tips-and-tricks-1/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Playwright tips and tricks #1</div><div class="kg-bookmark-description">Common errors, data test id hacks, auto-waits, timeouts hack, asserting an array of strings, absence of an element and many more</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" alt><span class="kg-bookmark-author">Martioli</span><span class="kg-bookmark-publisher">Adrian Maciuc</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.martioli.com/playwright-tips-and-tricks-2/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Playwright tips and tricks #2</div><div class="kg-bookmark-description">I’ve written a post about tips and tricks and it got a lot of love. So, I’ve decided to do another one. 1. How to handle an element that appears after full page load in playwright One of those rare cases where an element will appear in DOM only after</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" alt><span class="kg-bookmark-author">Martioli</span><span class="kg-bookmark-publisher">Adrian Maciuc</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt></div></a></figure><div class="kg-card kg-button-card kg-align-center"><a href="#/portal/signup/free" class="kg-btn kg-btn-accent">Subscribe for more...</a></div>
+            </section>
+
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/playwright-tips-and-tricks-2/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Playwright tips and tricks #2"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Playwright tips and tricks #2</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">I've written a post about tips and tricks and it got a lot of love. So, I've decided to do another one.
+
+
+1. How to handle an element that appears after full page load in playwright
+
+One of those rare cases where an element will appear in DOM only after</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">Adrian Maciuc</span>
+                <time class="gh-card-date" datetime="2024-01-08">Jan 8, 2024</time>
+                    <script
+    data-ghost-comment-count="65a43f06933cde00070f87d9"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/playwright-tips-and-tricks-1/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Playwright tips and tricks #1"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Playwright tips and tricks #1</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">As you work with a framework you start to encounter various situations from which you can learn. Things that you find out are really important and are not that easy to discover just by reading the docs or following tutorials. Things that come with experience. I would like to share</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">Adrian Maciuc</span>
+                <time class="gh-card-date" datetime="2023-12-08">Dec 8, 2023</time>
+                    <script
+    data-ghost-comment-count="65a43f06933cde00070f87d8"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/publish-your-playwright-reports-to-github-pages/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Publish your playwright reports to github pages"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Publish your playwright reports to github pages</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">What I am looking to achieve here is a free solution to have my reports published into separate sub-directories, accessible at an unique link that I can easily put in my Jira ticket, github issue or other test management tool, so I can show my client/manager/team what is</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">Adrian Maciuc</span>
+                <time class="gh-card-date" datetime="2023-11-02">Nov 2, 2023</time>
+                    <script
+    data-ghost-comment-count="65a43f06933cde00070f87d7"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="65ee0f334f313700078cdfc8"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~0.13/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.martioli.com/" data-api="https://blog.martioli.com/ghost/api/content/" data-admin="https://blog.martioli.com/ghost/" data-key="0781da3423523aaff7fa49a578" data-title="" data-count="false" data-post-id="65ee0f334f313700078cdfc8" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#00a388" data-comments-enabled="all" data-publication="Martioli" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to Martioli</h3>
+                        <div class="gh-subscribe-description">Be the first to discover new tips and tricks about automation in software development</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    Developed with love by Adrian Maciuc © 2024
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/main.min.js?v=d6f66aae46"></script>
+
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "51d762a9d9c04c0da84a9dc1039ae54f"}'></script><!-- End Cloudflare Web Analytics -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8db3f9350efd08fa","version":"2024.10.4","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"26e104abc43a4f699676968ba16660fe","b":1}' crossorigin="anonymous"></script>
+</body>
+
+</html>

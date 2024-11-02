@@ -112,7 +112,7 @@ await expect(responseAsJson.invoice.value).toBe("355");
 
 这个主题其实值得单独写一篇博文,[我在这里写过](https://blog.martioli.com/debugging-tests-with-playwright/)。但我想指出一点,几乎每个人都忽略了 Playwright 自带的调试器,[叫做 inspector](https://playwright.dev/docs/debug?ref=blog.martioli.com#playwright-inspector),能提供比你想象的多得多的信息。让我告诉你我的意思。假设你有一行代码,你就是搞不明白为什么无法达到你想要的效果。你可以这样做,用 `npx playwright test path/to/yourTest.spec.js --debug` 启动测试,然后进入 inspector,打开你想了解更多的操作,你就会看到 Playwright 在后台执行的所有操作:
 
-![Image 1](https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/inspector-under-the-hood.png)
+![Image 1](img/1730512502.104141inspector-under-the-hood.png)
 
 > 小提示:我不是很喜欢这个 inspector,因为在目前的 v1.40 版本中,它有点 buggy。但有时它还是很有用的。
 

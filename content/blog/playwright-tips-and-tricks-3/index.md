@@ -30,9 +30,9 @@ test.describe("测试套件名称", () => {
 
 下面是通过 `testInfo` 可以访问的其他值的截图
 
-![图片 1](https://blog.martioli.com/content/images/2024/03/image.png)
+![图片 1](img/1730512585.557697image.png)
 
-![图片 2](https://blog.martioli.com/content/images/2024/03/image-1.png)
+![图片 2](img/1730512588.1221068image-1.png)
 
 我的[关于并发执行的文章](https://blog.martioli.com/full-parallelization-with-playwright/)展示了如何利用这个对象来显示特定值。
 

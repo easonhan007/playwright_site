@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Playwright tips and tricks #1</title>
+    <link rel="stylesheet" href="/assets/built/screen.css?v=d6f66aae46">
+
+    <meta name="description" content="Common errors, data test id hacks, auto-waits, timeouts hack, asserting an array of strings, absence of an element and many more">
+    <link rel="icon" href="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" type="image/jpeg">
+    <link rel="canonical" href="https://blog.martioli.com/playwright-tips-and-tricks-1/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Martioli">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Playwright tips and tricks #1">
+    <meta property="og:description" content="Common errors, data test id hacks, auto-waits, timeouts hack, asserting an array of strings, absence of an element and many more">
+    <meta property="og:url" content="https://blog.martioli.com/playwright-tips-and-tricks-1/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:published_time" content="2023-12-07T22:18:25.000Z">
+    <meta property="article:modified_time" content="2024-05-04T08:18:33.000Z">
+    <meta property="article:tag" content="Playwright">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Playwright tips and tricks #1">
+    <meta name="twitter:description" content="Common errors, data test id hacks, auto-waits, timeouts hack, asserting an array of strings, absence of an element and many more">
+    <meta name="twitter:url" content="https://blog.martioli.com/playwright-tips-and-tricks-1/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Adrian Maciuc">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Playwright">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="895">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Martioli",
+        "url": "https://blog.martioli.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Adrian Maciuc",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.martioli.com/content/images/2024/01/adi-profile.jpg",
+            "width": 1200,
+            "height": 1265
+        },
+        "url": "https://blog.martioli.com/author/adrian/",
+        "sameAs": [
+            "http://www.martioli.com"
+        ]
+    },
+    "headline": "Playwright tips and tricks #1",
+    "url": "https://blog.martioli.com/playwright-tips-and-tricks-1/",
+    "datePublished": "2023-12-07T22:18:25.000Z",
+    "dateModified": "2024-05-04T08:18:33.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&ixlib=rb-4.0.3&q=80&w=2000",
+        "width": 1200,
+        "height": 895
+    },
+    "keywords": "Playwright",
+    "description": "As you work with a framework you start to encounter various situations from which you can learn. Things that you find out are really important and are not that easy to discover just by reading the docs or following tutorials. Things that come with experience. I would like to share some of the things that I have recently learned about Playwright.\n\nI will be referring in the following statements when talking about locator methods in Playwright with page.locator() but this does not mean that I sugg",
+    "mainEntityOfPage": "https://blog.martioli.com/playwright-tips-and-tricks-1/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.75">
+    <link rel="alternate" type="application/rss+xml" title="Martioli" href="https://blog.martioli.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.36/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.martioli.com/" data-key="0781da3423523aaff7fa49a578" data-api="https://blog.martioli.com/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="0781da3423523aaff7fa49a578" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.martioli.com/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.martioli.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=d6f66aae46"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=d6f66aae46">
+    <script defer src="/public/comment-counts.min.js?v=d6f66aae46" data-ghost-comments-counts-api="https://blog.martioli.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=d6f66aae46"></script>
+    <!-- remove rss from page view -->
+<style>
+    a.icon.fa-rss {
+        display:none;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D6X7JZL8L2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D6X7JZL8L2');
+</script>
+
+<!-- piwik pro statistics -->
+<script type="text/javascript">
+(function(window, document, dataLayerName, id) {
+window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
+var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+tags.async=!0,tags.src="https://martioli.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+!function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+})(window, document, 'dataLayer', '916e2516-9978-4a19-9683-5b0742a8e583');
+</script>
+
+<!-- clap button -->
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+
+<!-- cloudflare -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- umami statistics -->
+<script defer src="https://analytics.eu.umami.is/script.js" data-website-id="9c978255-e564-40a5-b899-1ad13a6b2d0e"></script>
+<script defer src="https://eu.umami.is/script.js" data-website-id="015ece7c-520d-4c07-af21-13d4d1102edc"></script>
+<style>:root {--ghost-accent-color: #00a388;}</style>
+</head>
+
+<body class="post-template tag-playwright tag-hash-import-2024-01-14-20-07 is-head-stacked has-serif-body">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.martioli.com">
+                            Martioli
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.martioli.com/">Home</a></li>
+    <li class="nav-about"><a href="https://blog.martioli.com/about/">About</a></li>
+    <li class="nav-more-cypress"><a href="https://blog.martioli.com/tag/cypress/">More Cypress</a></li>
+    <li class="nav-more-playwright"><a href="https://blog.martioli.com/tag/playwright/">More Playwright</a></li>
+    <li class="nav-recommended-resources"><a href="https://blog.martioli.com/#/portal/recommendations">Recommended Resources</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post tag-playwright tag-hash-import-2024-01-14-20-07 featured">
+
+            <header class="gh-article-header gh-canvas">
+                    <a class="gh-article-tag" href="https://blog.martioli.com/tag/playwright/">Playwright</a>
+
+                <h1 class="gh-article-title">Playwright tips and tricks #1</h1>
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list">
+                <a class="gh-author-image" href="/author/adrian/">
+                        <img src="https://blog.martioli.com/content/images/2024/01/adi-profile.jpg" alt="Adrian Maciuc">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/adrian/">Adrian Maciuc</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2023-12-08">Dec 8, 2023</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">8 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                    https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                    https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                    https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                    https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDR8fHRvb2xzfGVufDB8fHx8MTcwMTk4NjgzMHww&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
+            alt="Playwright tips and tricks #1"
+        >
+            <figcaption><span style="white-space: pre-wrap;">Photo by </span><a href="https://unsplash.com/@dancristianpaduret?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Dan Cristian Pădureț</span></a><span style="white-space: pre-wrap;"> / </span><a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit"><span style="white-space: pre-wrap;">Unsplash</span></a></figcaption>
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>As you work with a framework you start to encounter various situations from which you can learn. Things that you find out are really important and are not that easy to discover just by reading the docs or following tutorials. Things that come with experience. I would like to share some of the things that I have recently learned about Playwright.</p><p>I will be referring in the following statements when talking about locator methods in Playwright with <code>page.locator()</code> but this does not mean that I suggest to use only <code>locator()</code> . Its just a placeholder. On this topic I actually recommend to use the <a href="https://playwright.dev/docs/locators?ref=blog.martioli.com">built-in locator methods</a> created by Playwright, mostly <code>getByTestId()</code> and if you tried all and it just doesn't work for you, then use <code>.locator()</code></p><hr><h3 id="1-how-to-find-a-child-element-if-only-its-parents-have-unique-ids">1. How to find a child element if only its parents have unique ids</h3><p>For example if you have <code>uniqueIDParent &gt; div1 &gt; div2 &gt; span</code> (where span has the "text you want") , but there are multiple children (spans) with different text, if you give to playwright its parent or grandparent or greatgreat, it will traverse all of its children and extract all text. <code>expect(uniqueID).toHaveText("text you want")</code> will work. In the same time <code>page.getByTestId(uniqueIDParent).filter({ hasText: "text you want" })</code> will work just fine if you target only the child that has the text  you want. <a href="https://playwright.dev/docs/locators?ref=blog.martioli.com#filtering-locators">Filtering</a> works miracles.</p><hr><h3 id="2-why-do-i-get-sometimes-in-playwright-the-error-browser-has-been-closed">2. Why do I get sometimes in Playwright the error browser has been closed</h3><p>One reason may be, because you probably forgot an <code>await</code> somewhere. Playwright works in asynchronous way, meaning that its all promises, but you need your test steps to run sequentially, top to bottom and to perform the actions on that exact order. This is achieved by using the <code>await</code> key that will resolve the promise and this is how Playwright will keep your steps in order, to avoid issues about race conditions. Sometimes VS Code will suggest to you that you don't need some awaits, disregard that, you <strong>do</strong> need them.</p><hr><h3 id="3-auto-waits">3. Auto-waits</h3><p>Here are some typical examples of assertions from Selenium that you do not need to perform anymore:</p><ul><li> You don't have to assert element is visible before interacting with it. Playwright will do the following before an interaction: </li></ul><blockquote>		- it will check if the element is visible</blockquote><blockquote>		- if its attached to DOM</blockquote><blockquote>		- and if its stable, animation is completed</blockquote><ul><li>When you open a page or when you click a link to redirect to a page, you don't have to assert the page is loaded before interacting with elements, playwright will wait for the page to fully load first</li><li>You don't have to write explicit waits for an element when you are waiting for it to appear or waiting for it to disappear. Playwright has <a href="https://playwright.dev/docs/test-timeouts?ref=blog.martioli.com">built-in timeouts</a> (these explicit waits you know from Selenium) that will wait for an element and try to find it for a set interval of time (eg: by default is 5 seconds for an <code>expect(locator).toBeVisible()</code>)</li></ul><hr><h3 id="4-there-are-very-particular-situations-sometimes-where-the-timeouts-are-not-working-for-you">4. There are very particular situations sometimes where the timeouts are not working for you</h3><p>Or you just can't figure it out what to do about it, you still have a last option to simply wait a set number of seconds using the <a href="https://playwright.dev/docs/next/api/class-frame?ref=blog.martioli.com#frame-wait-for-timeout">waitForTimeout()</a> . This is discouraged in general, but sometimes you just have no other option.</p><hr><h3 id="5-how-do-i-assert-an-array-of-strings-in-playwright">5. How do I assert an array of strings in Playwright ?</h3><p><code>expect(locator).toHaveText(array)</code> - this can actually take an array and it will, under the hood, iterate over it to assert the items exist</p><hr><h3 id="6-how-to-handle-multiple-elements-in-playwright">6. How to handle multiple elements in Playwright ?</h3><p>Playwright locators will find both one element or multiple elements with the same method, depends on what you give it. If you want to deal with multiple elements (in Selenium you would do <code>findElements</code> and it will return an array of elements) , in Playwright if you do <code>page.locator(multipleElements)</code> this will return multiple elements but <strong>JUST</strong> for playwright under the hood, not for you (at least not as simple array of objects). All you get is one single locator (object). <strong>Why this happens?</strong> Because you may want to find one single element and try maybe to click it, so when you perform the action, in case the attribute belongs to multiple elements it will not let you click on multiple elements and it will throw an error, suggesting you how to fix your test. But if you <em>really</em> want to deal with all the elements, how do I do that ? You have to add <code>.all()</code> at the end. Example: <code>page.locator(multipleElements).all()</code></p><hr><h3 id="7-how-to-handle-bigger-chunks-of-text">7. How to handle bigger chunks of text ?</h3><p>Sometimes you can have multiple items that have text, if you give to playwright the parent of all the items, then playwright can extract those texts as an array. You can achieve that with <code>page.locator(parentOfElementsWithText).allTextContents()</code> or with <code>.allInnerTexts()</code> . The downside of this is that it is not recommended to assert exact match of text, mainly because sometimes it will fetch new lines (/n) or commas or extra spaces, but it can be useful to use this with an <code>expect(locator).toContain()</code></p><hr><h3 id="8-how-do-i-assert-the-absence-of-an-element-in-playwright">8. How do I assert the absence of an element in Playwright ?</h3><p>You can find this little hack on stackoverflow <code>expect(locator).toHaveCount(0)</code>. This is similar to Selenium <code>findElements</code>, and if element not found, it just returns an empty array. This is good because it will not fail the test. However I do recommend the Playwright builtin <a href="https://playwright.dev/docs/next/test-assertions?ref=blog.martioli.com#negating-matchers">NOT operator</a> , which is what you should actually use. Example <code>locator(element).not.toBeVisible()</code>. As a general practice all assert methods can be used with <strong>NOT.</strong></p><hr><h3 id="9-how-do-i-deal-with-the-situation-where-simple-use-of-just-getbytestid-is-not-enough">9. How do I deal with the situation where simple use of just getByTestId() is not enough ? </h3><p>There are various scenarios where you have maybe tables, where you need to combine parents and children web elements to reach your desired data. So, before going to <code>locator()</code> to build your super complex <code>css selectors</code> or <code>xpath</code>, think about using the <a href="https://playwright.dev/docs/api/class-locator?ref=blog.martioli.com#locator-and">and operator</a> , for example <code>page.getByText(elem).and(page.getByText(elem)</code> or you can do <code>page.getByTestId(elem).getByTestId(elem)</code> . Another option would be to use <a href="https://playwright.dev/docs/next/locators?ref=blog.martioli.com#filtering-locators">filtering locators</a>. Filters also can be used with the mix of <a href="https://playwright.dev/docs/next/locators?ref=blog.martioli.com#filter-by-not-having-text">NOT operator</a></p><hr><h3 id="10-using-one-parent-element-to-do-multiple-actions">10. Using one parent element to do multiple actions</h3><p>You can store the element in a <code>const element = page.locator()</code> . Notice that this scenario is one of the few times when you don't need the <code>await</code> in front of <code>page.locator()</code>. You can look at it as a placeholder. Later in your code you can do <code>element.click()</code> or search thru its children <code>element.getByTestId(child)</code> . The <em>cool</em> feature about this is that every time you call the element it will re-query the DOM.</p><hr><h3 id="11-do-not-use-locator-or-multiple">11. Do not use $(locator) or $$(multiple)</h3><p>Use of $ or $$ in Playwright is <a href="https://playwright.dev/docs/api/class-elementhandle?ref=blog.martioli.com">element handle</a> and its highly discouraged by playwright. The main idea about this is that you can encounter situations where using $ will just reference an element from a previous version of the DOM. You may end up seeing the well known Selenium error <code>StaleElementReferenceException</code></p><hr><h3 id="12-what-if-you-have-to-wait-for-the-app-response-and-it-takes-longer-than-the-usual-5-seconds">12. What if you have to wait for the app response and it takes longer than the usual 5 seconds ?</h3><p>You may encounter this, for example when you perform an action, a click, a submit, and it takes a longer time to get an answer, either you will have the 'spinning loader' or similar. If you know this happens you can increase the timeout to wait for a response on just one particular action, for example <code>expect(locator).toBeVisible({ timeout: 20000 })</code> . By passing the timeout inside the method this will override the default playwright configs only for that single line of code (hopefully you will no longer see the  error <code>error: timed out 5000ms waiting for expect(locator).tobevisible()</code> and your test will pass)</p><hr><h3 id="13-why-sometimes-expect-does-not-have-the-usual-tohavetext-method">13. Why sometimes expect does not have the usual toHaveText() method ?</h3><p>But if I try <code>toBe()</code> then it works. Because it depends what you are giving to <code>expect()</code> as an object. If you give it a standard locator it will have all the <a href="https://playwright.dev/docs/best-practices?ref=blog.martioli.com#use-web-first-assertions">web first assertions</a> but if you give it a modified object, something similar to <code>page.locator(elementWithText).innerText()</code> , because of the <code>innerText()</code> method this is no longer a standard playwright object, and with the rest of the objects it uses the <a href="https://jestjs.io/docs/expect?ref=blog.martioli.com">jest expect methods</a>. The playwright expect object will detect what type of object you give it and will work with either the jest expect like <code>toBe()</code> or the playwright methods like <code>toHaveText()</code>. Just remember that the playwright methods have auto-wait retry and the jest one does not.</p><hr><h3 id="14-multiple-data-test-id-attributes-on-web-elements">14. Multiple data test ID attributes on web elements</h3><p>We can configure in our playwright to use a custom test id attribute. When using the method <code>getByTestId()</code> Playwright will default to <code>data-testid="selector"</code> , so in case you have a different kind of default id locator set in your web app, you have to <a href="https://playwright.dev/docs/api/class-testoptions?ref=blog.martioli.com#test-options-test-id-attribute">set up your testIdAttribute first</a>. This includes if your website has unique ids under the format <code>id="selector"</code> . But <strong>can you config to use multiple test id</strong> attributes? Answer is <strong>NO</strong>. However, there is a small hack. You can use a different <code>testIdAttribute</code> in your general config and have a different one in your projects. Or you can have different projects with different IDs. This is used when you have two teams or group of teams that developed one app using one type of unique ID and another with a different one. It may be a situation of migrating away from a legacy app. Here is below an example</p><pre><code class="language-javascript">  projects: [
+    {
+      name: "new-mega-awesome-app",
+      testDir: "./tests",
+      use: {
+        ...devices["Desktop Chrome"],
+        testIdAttribute: "id",
+        baseURL: "https://newapp.domain.com",
+      },
+    },
+    {
+      name: "legacy-app",
+      testDir: "./tests-for-legacy-app",
+      use: {
+        ...devices["Desktop Chrome"],
+        testIdAttribute: "data-testid",
+        baseURL: "https://legacyapp.domain.com",
+      },
+    },
+  ],</code></pre><p></p><p>Hit the clap button if you found this useful. Or even <a href="https://ko-fi.com/adrianmaciuc?ref=blog.martioli.com">buy me a coffee</a> if you want to motivate me even more.</p>
+<!--kg-card-begin: html-->
+<applause-button style="width: 58px; height: 58px" color="#3f9dff"></applause-button>
+<!--kg-card-end: html-->
+<p></p><div class="kg-card kg-button-card kg-align-center"><a href="#/portal/signup/free" class="kg-btn kg-btn-accent">Subscribe for more...</a></div><p></p><p>Feel free to checkout other nice tips on my blog. I highly recommend this post about <a href="https://blog.martioli.com/publish-your-playwright-reports-to-github-pages/">publishing your playwright reports</a> directly on github pages, giving you easy access to your run results. Or maybe you would like to try my method in<a href="https://blog.martioli.com/how-can-i-learn-a-new-automation-software-testing-framework/"> learning new automation frameworks</a>.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.martioli.com/playwright-tips-and-tricks-2/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Playwright tips and tricks #2</div><div class="kg-bookmark-description">I’ve written a post about tips and tricks and it got a lot of love. So, I’ve decided to do another one. 1. How to handle an element that appears after full page load in playwright One of those rare cases where an element will appear in DOM only after</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" alt><span class="kg-bookmark-author">Martioli</span><span class="kg-bookmark-publisher">Adrian Maciuc</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.martioli.com/playwright-tips-and-tricks-3/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Playwright tips and tricks #3</div><div class="kg-bookmark-description">Get more details about your test during test run. How to use Playwright to test multiple browser windows. Promise.all in Playwright</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" alt><span class="kg-bookmark-author">Martioli</span><span class="kg-bookmark-publisher">Adrian Maciuc</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.unsplash.com/photo-1520587210458-bd3bee813b97?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fHVuZGVyJTIwdGhlJTIwaG9vZHxlbnwwfHx8fDE3MTA3MDA5NDF8MA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.martioli.com/publish-your-playwright-reports-to-github-pages/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Publish your playwright reports to github pages</div><div class="kg-bookmark-description">What I am looking to achieve here is a free solution to have my reports published into separate sub-directories, accessible at an unique link that I can easily put in my Jira ticket, github issue or other test management tool, so I can show my client/manager/team what is</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" alt><span class="kg-bookmark-author">Martioli</span><span class="kg-bookmark-publisher">Adrian Maciuc</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://blog.martioli.com/how-can-i-learn-a-new-automation-software-testing-framework/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">How can I learn [more efficient] a new testing framework ?</div><div class="kg-bookmark-description">There are so many languages and software testing frameworks out there that sometimes it feels overwhelming. You have Selenium, Cypress, Playwright, TestCafe, Protractor, Robot Framework, TestComplete, Karate, Nightwatch.js, Webdriver.io and many more. You may find yourself in a situation where a new…</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://res-2.cloudinary.com/dlvlme1cb/image/upload/q_auto/v1/ghost-blog-images/avatar1.jpg" alt><span class="kg-bookmark-author">Martioli</span><span class="kg-bookmark-publisher">Adrian Maciuc</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://images.unsplash.com/photo-1603468620905-8de7d86b781e?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE4M3x8Y29kaW5nfGVufDB8fHx8MTY4NTkxMjQxMXww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=2000" alt></div></a></figure>
+            </section>
+
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/playwright-tips-and-tricks-2/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1648545120788-6c0220422b27?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxmbG93ZXJzJTIwZGlnaXRhbHxlbnwwfHx8fDE3MDQyOTUyMjJ8MA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Playwright tips and tricks #2"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Playwright tips and tricks #2</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">I've written a post about tips and tricks and it got a lot of love. So, I've decided to do another one.
+
+
+1. How to handle an element that appears after full page load in playwright
+
+One of those rare cases where an element will appear in DOM only after</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">Adrian Maciuc</span>
+                <time class="gh-card-date" datetime="2024-01-08">Jan 8, 2024</time>
+                    <script
+    data-ghost-comment-count="65a43f06933cde00070f87d9"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/publish-your-playwright-reports-to-github-pages/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDd8fHJlcG9ydHN8ZW58MHx8fHwxNjk4ODMwMTkyfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Publish your playwright reports to github pages"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Publish your playwright reports to github pages</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">What I am looking to achieve here is a free solution to have my reports published into separate sub-directories, accessible at an unique link that I can easily put in my Jira ticket, github issue or other test management tool, so I can show my client/manager/team what is</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">Adrian Maciuc</span>
+                <time class="gh-card-date" datetime="2023-11-02">Nov 2, 2023</time>
+                    <script
+    data-ghost-comment-count="65a43f06933cde00070f87d7"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/which-one-is-better-python-selenium-with-pom-or-cypress-without-page-object-model/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1533284133567-0da9844151ce?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fHJhY2V8ZW58MHx8fHwxNjg3NjM2MjYzfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1533284133567-0da9844151ce?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fHJhY2V8ZW58MHx8fHwxNjg3NjM2MjYzfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1533284133567-0da9844151ce?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fHJhY2V8ZW58MHx8fHwxNjg3NjM2MjYzfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1533284133567-0da9844151ce?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fHJhY2V8ZW58MHx8fHwxNjg3NjM2MjYzfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1533284133567-0da9844151ce?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fHJhY2V8ZW58MHx8fHwxNjg3NjM2MjYzfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1533284133567-0da9844151ce?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;M3wxMTc3M3wwfDF8c2VhcmNofDl8fHJhY2V8ZW58MHx8fHwxNjg3NjM2MjYzfDA&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Which one is better? Selenium with POM or Cypress without POM"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Which one is better? Selenium with POM or Cypress without POM</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">One of the best things about trying various frameworks and designs is that you have the possibility to directly see how it "feels" and have a better understanding of what suits best for your present or future projects.
+
+I have done the Different Angle Challenge and I have created the</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">Adrian Maciuc</span>
+                <time class="gh-card-date" datetime="2023-06-25">Jun 25, 2023</time>
+                    <script
+    data-ghost-comment-count="65a43f06933cde00070f87d6"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="65a43f06933cde00070f87d8"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~0.13/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.martioli.com/" data-api="https://blog.martioli.com/ghost/api/content/" data-admin="https://blog.martioli.com/ghost/" data-key="0781da3423523aaff7fa49a578" data-title="" data-count="false" data-post-id="65a43f06933cde00070f87d8" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#00a388" data-comments-enabled="all" data-publication="Martioli" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to Martioli</h3>
+                        <div class="gh-subscribe-description">Be the first to discover new tips and tricks about automation in software development</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    Developed with love by Adrian Maciuc © 2024
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/assets/built/main.min.js?v=d6f66aae46"></script>
+
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "51d762a9d9c04c0da84a9dc1039ae54f"}'></script><!-- End Cloudflare Web Analytics -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8dc0838ccd8b940b","version":"2024.10.4","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"26e104abc43a4f699676968ba16660fe","b":1}' crossorigin="anonymous"></script>
+</body>
+
+</html>
