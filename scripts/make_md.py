@@ -126,9 +126,10 @@ class MdMaker():
 
     def format_date(self, date_str):
         try:
-            dt = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%S.%fZ")
-        except:
             dt = datetime.strptime(date_str, "%Y-%m-%d")
+        except:
+            return datetime.now().strftime("%Y-%m-%d")
+            # dt = datetime.strptime(date_str, "%Y-%m-%d")
         # 设置时区为UTC
         dt = dt.replace(tzinfo=pytz.UTC)
         # 格式化输出
