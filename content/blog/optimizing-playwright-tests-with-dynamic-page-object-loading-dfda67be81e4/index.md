@@ -1,7 +1,7 @@
 +++
 date = 2025-01-22
 title = "Playwright自动化中的动态页面对象类加载"
-description = "https://medium.com/@thananjayan1988/optimizing-playwright-tests-with-dynamic-page-object-loading-dfda67be81e4"
+description = "根据配置动态加载Page Object"
 authors = ["乙醇"]
 [taxonomies]
 tags = ["playwright进阶", "翻译"]
@@ -222,3 +222,5 @@ test.describe('Dynamic loading of class files', () => {
 ### 结论
 
 动态类加载适用于需要灵活性和运行时适应性的场景。我们可以轻松地封装和解耦代码，以实现更好的设计和维护目的。
+
+### [原文地址](https://medium.com/@thananjayan1988/optimizing-playwright-tests-with-dynamic-page-object-loading-dfda67be81e4)
