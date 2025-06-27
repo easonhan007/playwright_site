@@ -15,6 +15,7 @@ image = "banner.jpg"
 ---
 
 🧠 **VS Code 中的 AI 自动修复功能**
+
 Playwright 现在可以与 GitHub Copilot 深度集成，帮助你在 VS Code 中直接修复测试失败。当测试失败时，只需点击错误信息旁边的 ✨ 图标，或在测试资源管理器中悬停测试名称时点击图标。Playwright 会将足够的上下文信息提供给 Copilot，Copilot 会生成有针对性的修复建议。你可以查看、接受并重新运行，整个流程快速、高效，而且非常实用。
 
 ![](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg8shs35tp2e33mtmejkm.png)
@@ -24,6 +25,7 @@ Playwright 现在可以与 GitHub Copilot 深度集成，帮助你在 VS Code �
 ---
 
 🔎 **locator.describe()：增强 Trace 和报告可读性**
+
 现在你可以通过 `.describe()` 为任何定位器添加更具可读性的描述：
 
 ```javascript
@@ -46,6 +48,7 @@ await newTodo.fill("买牛奶");
 ---
 
 📊 **HTML 报告支持自定义标题**
+
 你可以为测试报告添加更清晰的标题，配置如下：
 
 ```javascript
@@ -61,6 +64,7 @@ export default defineConfig({
 ---
 
 ✅ **新增断言：`toContainClass`**
+
 想验证某个元素是否包含特定 class？现在可以使用：
 
 ```javascript
@@ -74,6 +78,7 @@ await expect(page.getByRole("listitem", { name: "Ship v1.52" })).toContainClass(
 ---
 
 🧪 **快照增强：支持 `children` 和 `url`**
+
 ARIA 快照（通过 `toMatchAriaSnapshot`）现在支持：
 
 - `/children: equal` —— 确保子元素被包含在快照中
@@ -97,6 +102,7 @@ await expect(locator).toMatchAriaSnapshot(`
 ---
 
 ⚙️ **测试运行器更新**
+
 新增了以下便捷功能：
 
 - `testProject.workers` —— 每个测试项目可自定义并发数
@@ -105,6 +111,7 @@ await expect(locator).toMatchAriaSnapshot(`
 ---
 
 🆙 **如何升级？**
+
 安装最新版本：
 
 ```bash
