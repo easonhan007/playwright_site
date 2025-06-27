@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>QuangTo - DEV Community</title>
+      <meta name="last-updated" content="2025-06-27 01:13:49 UTC">
+      <meta name="user-signed-in" content="false">
+      <meta name="head-cached-at" content="1750986829">
+      <meta name="environment" content="production">
+      <link rel="stylesheet" href="https://assets.dev.to/assets/minimal-35f63f367d855f6b96ce34f5ee637209befbd1ccab982d77db7fa68aefc310b8.css" media="all" id="main-minimal-stylesheet" />
+<link rel="stylesheet" href="https://assets.dev.to/assets/views-a5bc71817c6c5a5d5f7ef35d02d1e2ad459df1d40383819e216a2c78638b011c.css" media="all" id="main-views-stylesheet" />
+<link rel="stylesheet" href="https://assets.dev.to/assets/crayons-0f2fc85bc159498f8ae6fba58c460e6deba863d02d59dfa994c1954976ddb6cc.css" media="all" id="main-crayons-stylesheet" />
+
+      <script src="https://assets.dev.to/assets/base-9368b2eee5c6f60e55f4954123eb92b55feeb9778c9ca821647503b0438fa505.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/application-7258612fccf5d56314a6e4ad1898b4f818f474c4bb3485e302428d489a769a17.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/baseInitializers-b74902d56433062a87f5f1ce74769baf2a1a698772f46952b0ac72bc95c4abfd.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/baseTracking-b6bf73e5ee66633e151e7d5b7c6bbccedfa4c59e3615be97b98c4c0f543ddae7.js" defer="defer"></script>
+
+        <meta name="search-script" content="https://assets.dev.to/assets/Search-7dcdad3172ab4501a4598fe8b716c7a88146e79fd42256d36fb1b83e27bf77cf.js">
+      
+  <link rel="canonical" href="https://dev.to/quangto" />
+<meta name="description" content="Senior Test Engineer">
+<meta name="keywords" content="software development, engineering, rails, javascript, ruby">
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://dev.to/quangto" />
+<meta property="og:title" content="QuangTo — DEV Community Profile" />
+<meta property="og:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" />
+<meta property="og:description" content="Senior Test Engineer" />
+<meta property="og:site_name" content="DEV Community" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@thepracticaldev">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="QuangTo — DEV Community Profile">
+<meta name="twitter:description" content="Senior Test Engineer">
+<meta name="twitter:image:src" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" />
+  <link rel="alternate" type="application/rss+xml" title="DEV Community RSS Feed" href="https://dev.to/feed/quangto" />
+
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+      <link rel="icon" type="image/x-icon" href="https://media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" />
+      <link rel="apple-touch-icon" href="https://media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="https://media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="https://media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png">
+      <link href="https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192" />
+      <link href="https://media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128" />
+      <meta name="apple-mobile-web-app-title" content="dev.to">
+      <meta name="application-name" content="dev.to">
+      <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+      <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+      <link rel="search" href="https://dev.to/open-search.xml" type="application/opensearchdescription+xml" title="DEV Community" />
+
+      <meta property="forem:name" content="DEV Community" />
+      <meta property="forem:logo" content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" />
+      <meta property="forem:domain" content="dev.to" />
+    
+  </head>
+      <body
+        class="sans-serif-article-body default-header"
+        data-user-status="logged-out"
+        data-is-root-subforem=""
+          data-subforem-id="1"
+        data-community-name="DEV Community"
+        data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png"
+        data-locale="en"
+        data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr"
+        data-deployed-at="2025-06-26T22:02:20Z"
+        data-latest-commit-id="bae1fede05b55fbd670caee0d1425f05d63b9cf2"
+        data-ga-tracking="UA-71991109-1"
+        data-cookie-banner-user-context="logged_out_only"
+        data-cookie-banner-platform-context="off"
+        data-algolia-id="PRSOBFP46H"
+        data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd"
+        data-algolia-display="true"
+        data-dynamic-url-component="bmar11"
+        data-ga4-tracking-id="G-TYEM8Y3JN3">
+        
+        <script>
+          if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+            document.body.classList.add("hidden-shell");
+          }
+        </script>
+
+        <link rel="stylesheet" href="https://assets.dev.to/assets/minimal-35f63f367d855f6b96ce34f5ee637209befbd1ccab982d77db7fa68aefc310b8.css" media="all" id="secondary-minimal-stylesheet" />
+<link rel="stylesheet" href="https://assets.dev.to/assets/views-a5bc71817c6c5a5d5f7ef35d02d1e2ad459df1d40383819e216a2c78638b011c.css" media="all" id="secondary-views-stylesheet" />
+<link rel="stylesheet" href="https://assets.dev.to/assets/crayons-0f2fc85bc159498f8ae6fba58c460e6deba863d02d59dfa994c1954976ddb6cc.css" media="all" id="secondary-crayons-stylesheet" />
+
+        <div id="body-styles">
+          <style>
+            :root {
+              --accent-brand-lighter-rgb: 80, 99, 301;
+              --accent-brand-rgb: 59, 73, 223;
+              --accent-brand-darker-rgb: 47, 58, 178;
+            }
+          </style>
+        </div>
+        <div id="audiocontent" data-podcast="">
+          
+        </div>
+        <div class="navigation-progress" id="navigation-progress"></div>
+
+<header id="topbar" class="crayons-header topbar print-hidden">
+  <span id="route-change-target" tabindex="-1"></span>
+  <a href="#main-content" class="skip-content-link">Skip to content</a>
+  <div class="crayons-header__container">
+    <span class="inline-block m:hidden ">
+      <button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="apd8xhk932t92fkuys1qaur36wtmn5ef" class="crayons-icon"><title id="apd8xhk932t92fkuys1qaur36wtmn5ef">Navigation menu</title>
+    <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+
+      </button>
+    </span>
+    <a href="/" class="site-logo" aria-label="DEV Community Home">
+    <img class="site-logo__img"
+         src="https://media2.dev.to/dynamic/image/quality=100/https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+         style="aspect-ratio: 10 / 8"
+         alt="DEV Community">
+</a>
+
+
+    <div class="crayons-header--search js-search-form" id="header-search">
+      <form accept-charset="UTF-8" method="get" action="/search" role="search">
+        <div class="crayons-fields crayons-fields--horizontal">
+          <div class="crayons-field flex-1 relative">
+            <input id="search-input" class="crayons-header--search-input crayons-textfield js-search-input" type="text" id="nav-search" name="q" placeholder="Search..." autocomplete="off" />
+            <button type="submit" aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="aiaesmaumivfttnnensjme3ww9az06xo" aria-hidden="true" class="crayons-icon"><title id="aiaesmaumivfttnnensjme3ww9az06xo">Search</title>
+    <path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+
+            </button>
+
+            <a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                Powered by
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="24" height="24" viewBox="0 0 500 500.34" role="img" aria-labelledby="atf37oinplefk01d7uj5vf1yx98cxgcy" aria-hidden="true" class="crayons-icon"><title id="atf37oinplefk01d7uj5vf1yx98cxgcy">Search</title>
+  <defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+
+                Algolia
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="flex items-center h-100 ml-auto">
+        <div class="flex" id="authentication-top-nav-actions">
+          <span class="hidden m:block">
+            <a href="https://dev.to/enter" class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant>
+              Log in
+            </a>
+          </span>
+
+          <a href="https://dev.to/enter?state=new-user" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant>
+            Create account
+          </a>
+        </div>
+    </div>
+  </div>
+</header>
+
+<div class="hamburger">
+  <div class="hamburger__content">
+    <header class="hamburger__content__header">
+      <h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+
+      <button class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="ai7ni1p25heypfwfozv99jkcpucr0d8a" aria-hidden="true" class="crayons-icon c-btn__icon"><title id="ai7ni1p25heypfwfozv99jkcpucr0d8a">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+
+      </button>
+    </header>
+
+    <div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+    </div>
+  </div>
+  <div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+
+
+        <div id="active-broadcast" class="broadcast-wrapper"></div>
+<div id="page-content" class="wrapper stories stories-index" data-current-page="stories-index">
+  <div id="page-content-inner" data-internal-nav="false">
+    <div id="page-route-change" class="screen-reader-only" aria-live="polite" aria-atomic="true"></div>
+
+    <main id="main-content">
+
+
+  <script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Person","mainEntityOfPage":{"@type":"WebPage","@id":"https://dev.to/quangto"},"url":"https://dev.to/quangto","sameAs":["https://github.com/QuangTo"],"image":"https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F859636%2F1f08d5e6-4309-41a9-a811-ce43fb7c43a8.jpeg","name":"QuangTo","description":"Senior Test Engineer"}
+  </script>
+
+  <style>
+    :root {
+      --profile-brand-color: #000000;
+    }
+  </style>
+  <div class="brand-bg">
+    <div class="crayons-layout crayons-layout--limited-l pt-7 m:pt-9">
+      <header class="profile-header crayons-card mt-2">
+        <div class="relative profile-header__top">
+          <span class="crayons-avatar crayons-avatar--3xl">
+            <img src="https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F859636%2F1f08d5e6-4309-41a9-a811-ce43fb7c43a8.jpeg" width="128" height="128" alt="QuangTo profile picture" class="crayons-avatar__image">
+          </span>
+
+          <div class="profile-header__actions">
+            <button id="user-follow-butt" class="crayons-btn whitespace-nowrap follow-action-button follow-user" data-info='{&quot;id&quot;:859636,&quot;className&quot;:&quot;User&quot;,&quot;name&quot;:&quot;QuangTo&quot;}'>Follow</button>
+            <div class="profile-dropdown ml-2 s:relative hide-if-belongs-to-current-user-859636" data-username="quangto">
+              <button id="user-profile-dropdown" aria-expanded="false" aria-controls="user-profile-dropdownmenu" aria-haspopup="true" class="crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" role="img" aria-labelledby="al4qng7xmtb3kriymthjai9xk6zl7non" class="crayons-icon dropdown-icon"><title id="al4qng7xmtb3kriymthjai9xk6zl7non">User actions</title><path fill-rule="evenodd" clip-rule="evenodd" d="M7 12a2 2 0 11-4 0 2 2 0 014 0zm7 0a2 2 0 11-4 0 2 2 0 014 0zm5 2a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+
+              </button>
+
+              <div id="user-profile-dropdownmenu" class="crayons-dropdown left-2 right-2 s:right-0 s:left-auto top-100 mt-1">
+                <span class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/quangto"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-header__details" data-url="/users/859636">
+          <div class="items-center js-username-container mb-2">
+            <h1 class="crayons-title lh-tight">
+              QuangTo
+              <span class="ml-2"></span>
+            </h1>
+          </div>
+
+          <p class="fs-base profile-header__bio m:fs-l color-base-90 mb-4 mx-auto max-w-100 m:max-w-75">Senior Test Engineer</p>
+
+          <div class="profile-header__meta">
+
+            <span class="profile-header__meta__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="aqw3lcd8vycvfzq52g0ii5pvhw5m5q0d" class="crayons-icon mr-2 shrink-0"><title id="aqw3lcd8vycvfzq52g0ii5pvhw5m5q0d">Joined</title>
+    <path d="M8 6v3.999h3V6h2v3.999h3V6h2v3.999L19 10a3 3 0 012.995 2.824L22 13v1c0 1.014-.377 1.94-.999 2.645L21 21a1 1 0 01-1 1H4a1 1 0 01-1-1v-4.36a4.025 4.025 0 01-.972-2.182l-.022-.253L2 14v-1a3 3 0 012.824-2.995L5 10l1-.001V6h2zm11 6H5a1 1 0 00-.993.883L4 13v.971l.003.147a2 2 0 003.303 1.4c.363-.312.602-.744.674-1.218l.015-.153.005-.176c.036-1.248 1.827-1.293 1.989-.134l.01.134.004.147a2 2 0 003.992.031l.012-.282c.124-1.156 1.862-1.156 1.986 0l.012.282a2 2 0 003.99 0L20 14v-1a1 1 0 00-.883-.993L19 12zM7 1c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 11-2.898-.776C5.85 2.002 7 2.5 7 1zm5 0c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 01-2.898-.776C10.85 2.002 12 2.5 12 1zm5 0c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 01-2.898-.776C15.85 2.002 17 2.5 17 1z"></path>
+</svg>
+
+              <span>
+                Joined on <time datetime="2022-05-09T02:40:08Z" class="date">May 9, 2022</time>
+              </span>
+            </span>
+
+
+
+              <a href="https://github.com/QuangTo" target="_blank" rel="noopener me" class="profile-header__meta__item p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="af0hazyu4aigyixgbol04fn2i1z6kio5" class="crayons-icon shrink-0"><title id="af0hazyu4aigyixgbol04fn2i1z6kio5">github website</title>
+    <path d="M12 2C6.475 2 2 6.475 2 12a9.994 9.994 0 006.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.338 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 012.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0022 12c0-5.525-4.475-10-10-10z"></path>
+</svg>
+
+              </a>
+          </div>
+        </div>
+
+        
+
+
+        <div class="p-3 block m:hidden js-user-info-trigger-wrapper">
+          <button type="button" class="my-3 crayons-btn crayons-btn--outlined w-100 js-user-info-trigger">More info about @quangto</button>
+        </div>
+
+      </header>
+    </div>
+  </div>
+
+<div
+  class="crayons-layout crayons-layout--limited-l crayons-layout--2-cols crayons-layout--2-cols--1-2 pt-4 m:pt-0"
+  id="index-container"
+  data-params="{&quot;user_id&quot;:859636,&quot;class_name&quot;:&quot;Article&quot;,&quot;sort_by&quot;:&quot;published_at&quot;,&quot;sort_direction&quot;:&quot;desc&quot;}" data-which="articles"
+  data-tag=""
+  data-feed="base-feed"
+  data-articles-since="0">
+
+  <div class="crayons-layout__sidebar-left crayons-layout__content">
+    <div class="m:gap-4 hidden m:grid js-user-info">
+      <div class="crayons-card crayons-card--secondary">
+    <header class="crayons-card__header">
+      <h3 class="crayons-subtitle-3">Badges</h3>
+    </header>
+
+  <div class="crayons-card__body">
+    <div class="grid gap-4 grid-cols-3 s:grid-cols-4 m:grid-cols-2 align-center items-center js-profile-badges">
+        <div role="button" onclick="window.Forem.showModal({size: 'medium', showHeader: false, contentSelector: '#badge-280', overlay: true})"
+           title="Writing Debut"
+           class="js-profile-badge  relative">
+          <img src="https://media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F280%2FWriting_Streak_Badges-05.png"
+               alt="Writing Debut"
+               class="mx-auto w-75 h-auto align-middle"
+               style="object-fit: contain; cursor: pointer; width: 100%; aspect-ratio: 1 / 1; max-width: 80px;"
+               loading="lazy" />
+          
+        </div>
+
+        <div id="badge-280" class="hidden">
+          <div class="badge_details">
+  <div class="badge-image-container p-3">
+    <img
+      class="badge-image"
+      src="https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F280%2FWriting_Streak_Badges-05.png"
+      alt="Writing Debut badge"
+      title="Writing Debut"
+      loading="lazy" />
+  </div>
+
+  <div class="badge_text_content">
+    <h4 class="title fw-800 fs-l">Writing Debut</h4>
+    <p class="description">Awarded for writing and sharing your first DEV post! Continue sharing your work to earn the 4 Week Writing Streak Badge.</p>
+    <button class="got-it-btn items-start c-btn c-btn--primary" onclick="window.Forem.closeModal()">Got it</button>
+  </div>
+  <div class="close" onclick="window.Forem.closeModal()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="close_icon"><title>Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+
+  </div>
+</div>
+
+        </div>
+        <div role="button" onclick="window.Forem.showModal({size: 'medium', showHeader: false, contentSelector: '#badge-10', overlay: true})"
+           title="Three Year Club"
+           class="js-profile-badge  relative">
+          <img src="https://media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F10%2FVersion2-06.png"
+               alt="Three Year Club"
+               class="mx-auto w-75 h-auto align-middle"
+               style="object-fit: contain; cursor: pointer; width: 100%; aspect-ratio: 1 / 1; max-width: 80px;"
+               loading="lazy" />
+          
+        </div>
+
+        <div id="badge-10" class="hidden">
+          <div class="badge_details">
+  <div class="badge-image-container p-3">
+    <img
+      class="badge-image"
+      src="https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F10%2FVersion2-06.png"
+      alt="Three Year Club badge"
+      title="Three Year Club"
+      loading="lazy" />
+  </div>
+
+  <div class="badge_text_content">
+    <h4 class="title fw-800 fs-l">Three Year Club</h4>
+    <p class="description">This badge celebrates the longevity of those who have been a registered member of the DEV Community for at least three years.</p>
+    <button class="got-it-btn items-start c-btn c-btn--primary" onclick="window.Forem.closeModal()">Got it</button>
+  </div>
+  <div class="close" onclick="window.Forem.closeModal()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="close_icon"><title>Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+
+  </div>
+</div>
+
+        </div>
+        <div role="button" onclick="window.Forem.showModal({size: 'medium', showHeader: false, contentSelector: '#badge-9', overlay: true})"
+           title="Two Year Club"
+           class="js-profile-badge  relative">
+          <img src="https://media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F9%2FVersion2-07.png"
+               alt="Two Year Club"
+               class="mx-auto w-75 h-auto align-middle"
+               style="object-fit: contain; cursor: pointer; width: 100%; aspect-ratio: 1 / 1; max-width: 80px;"
+               loading="lazy" />
+          
+        </div>
+
+        <div id="badge-9" class="hidden">
+          <div class="badge_details">
+  <div class="badge-image-container p-3">
+    <img
+      class="badge-image"
+      src="https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F9%2FVersion2-07.png"
+      alt="Two Year Club badge"
+      title="Two Year Club"
+      loading="lazy" />
+  </div>
+
+  <div class="badge_text_content">
+    <h4 class="title fw-800 fs-l">Two Year Club</h4>
+    <p class="description">This badge celebrates the longevity of those who have been a registered member of the DEV Community for at least two years.</p>
+    <button class="got-it-btn items-start c-btn c-btn--primary" onclick="window.Forem.closeModal()">Got it</button>
+  </div>
+  <div class="close" onclick="window.Forem.closeModal()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="close_icon"><title>Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+
+  </div>
+</div>
+
+        </div>
+        <div role="button" onclick="window.Forem.showModal({size: 'medium', showHeader: false, contentSelector: '#badge-2', overlay: true})"
+           title="One Year Club"
+           class="js-profile-badge  relative">
+          <img src="https://media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F2%2FVersion2-08.png"
+               alt="One Year Club"
+               class="mx-auto w-75 h-auto align-middle"
+               style="object-fit: contain; cursor: pointer; width: 100%; aspect-ratio: 1 / 1; max-width: 80px;"
+               loading="lazy" />
+          
+        </div>
+
+        <div id="badge-2" class="hidden">
+          <div class="badge_details">
+  <div class="badge-image-container p-3">
+    <img
+      class="badge-image"
+      src="https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fbadge%2Fbadge_image%2F2%2FVersion2-08.png"
+      alt="One Year Club badge"
+      title="One Year Club"
+      loading="lazy" />
+  </div>
+
+  <div class="badge_text_content">
+    <h4 class="title fw-800 fs-l">One Year Club</h4>
+    <p class="description">This badge celebrates the longevity of those who have been a registered member of the DEV Community for at least one year.</p>
+    <button class="got-it-btn items-start c-btn c-btn--primary" onclick="window.Forem.closeModal()">Got it</button>
+  </div>
+  <div class="close" onclick="window.Forem.closeModal()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="close_icon"><title>Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+
+  </div>
+</div>
+
+        </div>
+    </div>
+
+  </div>
+</div>
+
+
+    
+
+
+
+    <div class="crayons-card crayons-card--secondary p-4">
+      <div class="flex items-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="a3a94run8uj2ruyxj1am51g76zbunn8x" class="crayons-icon mr-3 color-base-50"><title id="a3a94run8uj2ruyxj1am51g76zbunn8x">Post</title>
+    <path d="M19 22H5a3 3 0 01-3-3V3a1 1 0 011-1h14a1 1 0 011 1v12h4v4a3 3 0 01-3 3zm-1-5v2a1 1 0 002 0v-2h-2zm-2 3V4H4v15a1 1 0 001 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z"></path>
+</svg>
+
+        1 post published
+      </div>
+      <div class="flex items-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="aj1kpwi7a6592sg4cg3pa0yloqn84u9c" class="crayons-icon mr-3 color-base-50"><title id="aj1kpwi7a6592sg4cg3pa0yloqn84u9c">Comment</title>
+    <path d="M10 3h4a8 8 0 010 16v3.5c-5-2-12-5-12-11.5a8 8 0 018-8zm2 14h2a6 6 0 000-12h-4a6 6 0 00-6 6c0 3.61 2.462 5.966 8 8.48V17z"></path>
+</svg>
+
+        3 comments written
+      </div>
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="ahit0wqdteolju42b7f9f8ulvfrqa724" class="crayons-icon mr-3 color-base-50"><title id="ahit0wqdteolju42b7f9f8ulvfrqa724">Tag</title>
+    <path d="M7.784 14l.42-4H4V8h4.415l.525-5h2.011l-.525 5h3.989l.525-5h2.011l-.525 5H20v2h-3.784l-.42 4H20v2h-4.415l-.525 5h-2.011l.525-5H9.585l-.525 5H7.049l.525-5H4v-2h3.784zm2.011 0h3.99l.42-4h-3.99l-.42 4z"></path>
+</svg>
+
+        18 tags followed
+      </div>
+    </div>
+</div>
+
+  </div>
+
+  <main class="crayons-layout__content articles-list" id="articles-list">
+    <div class="substories" id="substories">
+          <div class="crayons-story " data-feed-content-id="2598652" data-content-user-id="859636">
+  <a href="https://dev.to/quangto/playwright-locator-handling-complex-ui-elements-with-ease-2pj6" aria-labelledby="article-link-2598652" class="crayons-story__hidden-navigation-link">Playwright Locator – Handling Complex UI Elements with Ease</a>
+
+
+  <div class="crayons-story__body">
+    <div class="crayons-story__top">
+      <div class="crayons-story__meta">
+        <div class="crayons-story__author-pic">
+
+          <a href="/quangto" class="crayons-avatar  crayons-avatar--l  ">
+            <img src="https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F859636%2F1f08d5e6-4309-41a9-a811-ce43fb7c43a8.jpeg" alt="quangto profile" class="crayons-avatar__image" loading="lazy" />
+          </a>
+        </div>
+        <div>
+          <div>
+            <a href="/quangto" class="crayons-story__secondary fw-medium m:hidden">
+              QuangTo
+            </a>
+            <div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+              <button id="story-author-preview-trigger-2598652" aria-controls="story-author-preview-content-2598652" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" aria-label="QuangTo profile details">
+                QuangTo
+                
+              </button>
+              <div
+                id="story-author-preview-content-2598652"
+                class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0"
+                style="border-top-color: var(--card-color);"
+                data-repositioning-dropdown="true"
+                data-testid="profile-preview-card">
+                <div class="gap-4 grid">
+                  <div class="-mt-4">
+                    <a href="/quangto" class="flex">
+                      <span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+                        <img
+                          src="https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F859636%2F1f08d5e6-4309-41a9-a811-ce43fb7c43a8.jpeg"
+                          class="crayons-avatar__image"
+                          alt=""
+                          loading="lazy" />
+                      </span>
+                      <span class="crayons-link crayons-subtitle-2 mt-5">QuangTo</span>
+                    </a>
+                  </div>
+                  <div class="print-hidden">
+                    <button
+                      class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100"
+                      data-info='{&quot;style&quot;:&quot;full&quot;,&quot;id&quot;:859636,&quot;className&quot;:&quot;User&quot;,&quot;name&quot;:&quot;QuangTo&quot;}'>
+                      Follow
+                    </button>
+                  </div>
+                  <div
+                    class="author-preview-metadata-container"
+                    data-author-id="859636"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <a href="https://dev.to/quangto/playwright-locator-handling-complex-ui-elements-with-ease-2pj6" class="crayons-story__tertiary fs-xs"><time datetime="2025-06-17T04:18:12Z">Jun 17</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1750133892"></span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="crayons-story__indention">
+      <h2 class="crayons-story__title">
+        <a href="https://dev.to/quangto/playwright-locator-handling-complex-ui-elements-with-ease-2pj6" data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fjrzcy2ovuvur6u8opp3j.jpeg" id="article-link-2598652">
+          Playwright Locator – Handling Complex UI Elements with Ease
+        </a>
+      </h2>
+      <div class="crayons-story__tags">
+          <a class="crayons-tag  crayons-tag--monochrome " style="
+        --tag-bg: rgba(29, 141, 34, 0.10);
+        --tag-prefix: #1d8d22;
+        --tag-bg-hover: rgba(29, 141, 34, 0.10);
+        --tag-prefix-hover: #1d8d22;
+      " href="/t/playwright"><span class="crayons-tag__prefix">#</span>playwright</a>
+          <a class="crayons-tag  crayons-tag--monochrome " style="
+        --tag-bg: rgba(59, 73, 223, 0.10);
+        --tag-prefix: #3b49df;
+        --tag-bg-hover: rgba(59, 73, 223, 0.10);
+        --tag-prefix-hover: #3b49df;
+      " href="/t/automation"><span class="crayons-tag__prefix">#</span>automation</a>
+          <a class="crayons-tag  crayons-tag--monochrome " style="
+        --tag-bg: rgba(59, 73, 223, 0.10);
+        --tag-prefix: #3b49df;
+        --tag-bg-hover: rgba(59, 73, 223, 0.10);
+        --tag-prefix-hover: #3b49df;
+      " href="/t/locator"><span class="crayons-tag__prefix">#</span>locator</a>
+      </div>
+      <div class="crayons-story__bottom">
+        <div class="crayons-story__details">
+          <a href="https://dev.to/quangto/playwright-locator-handling-complex-ui-elements-with-ease-2pj6" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reaction-count data-reactable-id="2598652" aria-label="Add a comment to post - Playwright Locator – Handling Complex UI Elements with Ease">
+            <div class="multiple_reactions_aggregate">
+              <span class="multiple_reactions_icons_container" dir="rtl">
+                  <span class="crayons_icon_container">
+                    <img src="https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18" height="18" />
+                  </span>
+              </span>
+              <span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+            </div>
+          </a>
+            <a href="https://dev.to/quangto/playwright-locator-handling-complex-ui-elements-with-ease-2pj6#comments" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" aria-label="Add a comment to post - Playwright Locator – Handling Complex UI Elements with Ease">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" role="img" aria-labelledby="an1rg27o44snq16e4xm2z8cv1tn0oyh0" class="crayons-icon"><title id="an1rg27o44snq16e4xm2z8cv1tn0oyh0">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              <span class="hidden s:inline">Add Comment</span>
+            </a>
+        </div>
+        <div class="crayons-story__save">
+          <small class="crayons-story__tertiary fs-xs mr-2">
+            1 min read
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="comments-locked-cta" class="crayons-card mt-2 m:mt-0 mb-2 m:p-8 p-4">
+  <div class="align-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="132" height="102" viewBox="0 0 132 102" fill="none" aria-hidden="true">
+    <g filter="url(#a)">
+        <rect y="6" width="128" height="92" rx="8" fill="url(#b)"></rect>
+        <rect x=".5" y="6.5" width="127" height="91" rx="7.5" stroke="#171717"></rect>
+    </g>
+    <path d="M.5 14A7.5 7.5 0 0 1 8 6.5h112a7.5 7.5 0 0 1 7.5 7.5v11.5H.5V14Z" fill="url(#c)" stroke="#171717"></path>
+    <path opacity=".2" d="M13 63h27v2H13v-2ZM13 70h21v2H13v-2ZM13 77h28v2H13v-2ZM13 84h24v2H13v-2Z" fill="#171717"></path>
+    <g filter="url(#d)">
+        <circle cx="64" cy="24" r="24" fill="url(#e)"></circle>
+        <circle cx="64" cy="24" r="23.571" stroke="#171717" stroke-width=".857"></circle>
+    </g>
+    <circle cx="64" cy="16.286" r="5.571" fill="url(#f)" stroke="#171717" stroke-width=".857"></circle>
+    <path d="M75.571 33.03c0 1.32-.535 2.285-1.373 3.008-.854.736-2.033 1.23-3.306 1.552-2.545.645-5.319.569-6.174.525a5.576 5.576 0 0 0-.579 0c-.855.044-3.629.12-6.174-.525-1.273-.322-2.452-.816-3.305-1.552-.84-.723-1.374-1.688-1.374-3.009 0-3.077 1.237-5.424 3.228-7.012 2-1.596 4.792-2.446 7.915-2.446 3.122 0 5.913.85 7.915 2.446 1.99 1.588 3.227 3.936 3.227 7.012Z" fill="url(#g)" stroke="#171717" stroke-width=".857"></path>
+    <path d="M49.5 64a3.5 3.5 0 0 1 3.5-3.5h64a3.5 3.5 0 0 1 3.5 3.5v33.5h-71V64Z" fill="url(#h)" stroke="#171717"></path>
+    <circle cx="59" cy="72" r="3.5" fill="#A7F3D0" stroke="#171717"></circle>
+    <path fill="#171717" d="M66 71h20v2H66z"></path>
+    <path opacity=".2" d="M66 80h30v2H66v-2ZM66 87h44v2H66v-2Z" fill="#171717"></path>
+    <defs>
+        <linearGradient id="b" x1="64" y1="6" x2="64" y2="98" gradientUnits="userSpaceOnUse">
+            <stop offset=".736" stop-color="#fff"></stop>
+            <stop offset="1" stop-color="#D7D7D7"></stop>
+        </linearGradient>
+        <linearGradient id="c" x1="64" y1="6" x2="64" y2="98" gradientUnits="userSpaceOnUse">
+            <stop offset=".736" stop-color="#fff"></stop>
+            <stop offset="1" stop-color="#D7D7D7"></stop>
+        </linearGradient>
+        <linearGradient id="e" x1="64" y1="0" x2="64" y2="48" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFE89E"></stop>
+            <stop offset="1" stop-color="#FFC50A"></stop>
+        </linearGradient>
+        <linearGradient id="f" x1="64" y1="10.286" x2="64" y2="23.623" gradientUnits="userSpaceOnUse">
+            <stop offset=".292" stop-color="#fff"></stop>
+            <stop offset="1" stop-color="#E7E7E7"></stop>
+        </linearGradient>
+        <linearGradient id="g" x1="64.429" y1="23.143" x2="64.429" y2="40.291" gradientUnits="userSpaceOnUse">
+            <stop offset=".292" stop-color="#fff"></stop>
+            <stop offset="1" stop-color="#E7E7E7"></stop>
+        </linearGradient>
+        <linearGradient id="h" x1="85" y1="52" x2="85" y2="114" gradientUnits="userSpaceOnUse">
+            <stop offset=".292" stop-color="#fff"></stop>
+            <stop offset="1" stop-color="#E7E7E7"></stop>
+        </linearGradient>
+        <filter id="a" x="0" y="6" width="132" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+            <feOffset dx="4" dy="4"></feOffset>
+            <feComposite in2="hardAlpha" operator="out"></feComposite>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"></feColorMatrix>
+            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_811_2367"></feBlend>
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow_811_2367" result="shape"></feBlend>
+        </filter>
+        <filter id="d" x="40" y="0" width="51.429" height="51.429" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+            <feOffset dx="3.429" dy="3.429"></feOffset>
+            <feComposite in2="hardAlpha" operator="out"></feComposite>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"></feColorMatrix>
+            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_811_2367"></feBlend>
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow_811_2367" result="shape"></feBlend>
+        </filter>
+    </defs>
+</svg>
+
+  </div>
+  <h3 class="crayons-subtitle-3 mt-5 fs-l align-center">
+    Want to connect with QuangTo?
+  </h3>
+  <p class="align-center mt-1 color-base-60 fs-base">
+    Create an account to connect with QuangTo. You can also sign in below to proceed if you already have an account.
+  </p>
+  <div class="align-center mt-4">
+    <a href="/enter?state=new-user" class="crayons-btn crayons-btn--l w-75" data-tracking-id="ca_profile_comment_section_locked" data-tracking-source="comments_locked_cta" data-no-instant>
+      Create Account
+    </a>
+  </div>
+  <div class="align-center mt-4">
+    <span>
+      Already have an account?
+      <a
+        href="/enter"
+        data-tracking-id="si_profile_comment_section_locked"
+        data-tracking-source="comments_locked_cta">
+          Sign in
+      </a>
+    </span>
+  </div>
+</div>
+
+  
+  <div class="placeholder-div"></div>
+
+    </div>
+    <div class="loading-articles" id="loading-articles">
+      loading...
+    </div>
+  </main>
+</div>
+</main>
+
+<script src="https://assets.dev.to/assets/storiesList-b9c50cbd898a3a64258a3a49db1c531651b0a4a11937be35ed4651111802b5b5.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/followButtons-f2455d1f50a862b83fa006b1953e3a1644598781243cae25d3e75b13c04184fd.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/feedPreviewCards-8d16b0b656456a28c0a290f756cf6e21e19833111c4796f48c631bfea8323d51.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/hideBookmarkButtons-0cc08aac1c422e6b6f75e5284b5350215abf211b59fb3eb8d8a4ef85e205b607.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/profileDropdown-cd734402b28ba81eaec2ca8b2df8fc3a188ecd37c709ec183e369ca69e461d77.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/users/profilePage-1393cb4a2fea4e217cb2a2451f02d7a20ee01da60dc85f128f703631908dab09.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js" defer="defer"></script>
+<script src="https://assets.dev.to/assets/asyncUserStatusCheck-c38c3dcbc3fa64c8ff9e403434eabaf359c4957d3fb713784cc99144da5d5358.js" defer="defer"></script>
+
+    <div id="runtime-banner-container"></div>
+  </div>
+</div>
+    
+
+<footer id="footer" class="crayons-footer print-hidden">
+  <div id="footer-container" class="crayons-footer__container">
+
+
+        <style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+
+  <div
+    style=""
+    data-display-unit data-id="146443"
+    data-category-click="click"
+    data-category-impression="impression"
+    data-context-type="home"
+    data-special="nothing"
+    data-article-id=""
+    data-type-of="in_house">
+          <div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+        <p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+        <p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+    
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+            <div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+                <a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&bb=146443" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxjlyhbdqehj3akhz166w.png" alt="Google AI - Official AI Model and Platform Partner" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" loading="lazy" width="2048" height="472">
+                </a>
+                <p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+            </div>
+
+            <div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+                <a href="https://neon.tech/?ref=devto&bb=146443" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbnl88cil6afxzmgwrgtt.png" alt="Neon - Official Database Partner" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" loading="lazy" width="2286" height="596">
+                </a>
+                <p style="text-align: center;">Neon is the official database partner of DEV</p>
+            </div>
+    
+            <div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+                <a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&bb=146443" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv30ephnolfvnlwgwm0yz.png" alt="Algolia - Official Search Partner" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" loading="lazy" width="2286" height="596">
+                </a>
+                <p style="text-align: center;">Algolia is the official search partner of DEV</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+    <p class="fs-s crayons-footer__description">
+      <a class="c-link c-link--branded fw-medium" aria-label="DEV Community Home" href="/">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+
+    <ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style="" />
+        <li class="footer__nav-link flex items-center">
+    <a href="/">
+      Home
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+  <li class="footer__nav-link flex items-center">
+    <a href="/tags">
+      Tags
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+  <li class="footer__nav-link flex items-center">
+    <a href="/about">
+      About
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+  <li class="footer__nav-link flex items-center">
+    <a href="/contact">
+      Contact
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+
+    </ul>
+
+    <ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style="" />
+        <li class="footer__nav-link flex items-center">
+    <a href="/code-of-conduct">
+      Code of Conduct
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+  <li class="footer__nav-link flex items-center">
+    <a href="/privacy">
+      Privacy Policy
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+  <li class="footer__nav-link flex items-center">
+    <a href="/terms">
+      Terms of use
+    </a>
+    <span class="dot ml-2"></span>
+  </li>
+
+    </ul>
+
+    <div class="fs-s">
+      <p>Built on <a class="c-link c-link--branded" target="_blank" rel="noopener" href="https://www.forem.com">Forem</a> — the <a target="_blank" rel="noopener" class="c-link c-link--branded" href="https://dev.to/t/opensource">open source</a> software that powers <a target="_blank" rel="noopener" class="c-link c-link--branded" href="https://dev.to">DEV</a> and other inclusive communities.</p>
+      <p>Made with love and <a target="_blank" rel="noopener" class="c-link c-link--branded" href="https://dev.to/t/rails">Ruby on Rails</a>. DEV Community <span title="copyright">&copy;</span> 2016 - 2025.</p>
+    </div>
+  </div>
+</footer>
+<div id="snack-zone"></div>
+
+    <div id="global-signup-modal" class="authentication-modal hidden">
+  <div class="authentication-modal__container">
+    <figure class="authentication-modal__image-container">
+      <img class="authentication-modal__image" src="https://media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png"
+        alt="DEV Community" loading="lazy" />
+    </figure>
+    <div class="authentication-modal__content">
+      <p class="authentication-modal__description">
+          We&#39;re a place where coders share, stay up-to-date and grow their careers.
+      </p>
+    </div>
+    <div class="authentication-modal__actions">
+      <a href="/enter" class="crayons-btn" aria-label="Log in" data-no-instant>
+        Log in
+      </a>
+      <a href="/enter?state=new-user" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" aria-label="Create new account" data-no-instant>
+        Create account
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js" defer="defer"></script>
+
+    <div id="cookie-consent"></div>
+  <div id="i18n-translations" data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You&#39;re not following anyone&quot;,&quot;following_everyone&quot;:&quot;You&#39;re following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You&#39;re following&quot;,&quot;and&quot;:&quot;and&quot;}}}"></div>
+  <div id="reaction-category-resources" class="hidden" aria-hidden="true">
+    <img data-name="Like" data-slug="like" data-position="1" src="https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18" height="18" />
+    <img data-name="Unicorn" data-slug="unicorn" data-position="2" src="https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18" height="18" />
+    <img data-name="Exploding Head" data-slug="exploding_head" data-position="3" src="https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18" height="18" />
+    <img data-name="Raised Hands" data-slug="raised_hands" data-position="4" src="https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18" height="18" />
+    <img data-name="Fire" data-slug="fire" data-position="5" src="https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18" height="18" />
+</div>
+
+    <script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+
+  
+  </body>
+  </html>
