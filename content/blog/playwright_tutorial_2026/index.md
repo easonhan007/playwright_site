@@ -4,7 +4,7 @@ title = "playwright 2026 实操教程"
 description = "2026年初如何手写自动化流程"
 authors = ["乙醇"]
 [taxonomies]
-tags = ["playwright基础", "原创"]
+tags = ["playwright基础", "原创", "video"]
 [extra]
 math = false
 image = "playwright_2026_b.png"
