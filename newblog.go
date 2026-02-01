@@ -148,7 +148,7 @@ func updateDate(frontmatter string) string {
 	now := time.Now()
 	currentDate := now.Format("2006-01-02")
 
-	// 替换 date 行
+	// 替换 date、清空 title、description 和 image 行
 	var buf bytes.Buffer
 	scanner := bufio.NewScanner(strings.NewReader(frontmatter))
 
@@ -156,6 +156,13 @@ func updateDate(frontmatter string) string {
 		line := scanner.Text()
 		if strings.HasPrefix(line, "date = ") {
 			buf.WriteString(fmt.Sprintf("date = %s\n", currentDate))
+		} else if strings.HasPrefix(line, "title = ") {
+			buf.WriteString("title = \"\"\n")
+		} else if strings.HasPrefix(line, "description = ") {
+			buf.WriteString("description = \"\"\n")
+		} else if strings.Contains(line, "image = ") {
+			// 在 extra 部分清空 image
+			buf.WriteString(strings.TrimSpace(strings.Split(line, "=")[0]) + " = \"\"\n")
 		} else {
 			buf.WriteString(line + "\n")
 		}
