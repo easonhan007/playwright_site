@@ -75,6 +75,38 @@ In order to use the theme, you need some software pre-installed:
 
 ---
 
+## Creating a New Blog Post
+
+This repository includes a helper tool `newblog` for quickly creating new blog posts.
+
+### Using the newblog Tool
+
+The `newblog` command creates a new directory in `content/blog/` with an `index.md` file.
+The frontmatter is automatically copied from the latest blog post, with the date updated to the current day.
+
+**Usage:**
+```bash
+./newblog <directory-name>
+./newblog -h|--help
+```
+
+**Example:**
+```bash
+./newblog my-new-post
+```
+
+This will create:
+- `content/blog/my-new-post/index.md`
+
+The generated `index.md` contains only the frontmatter section (TOML format between `+++` markers), ready for you to add your content.
+
+**To build the tool:**
+```bash
+go build -o newblog newblog.go
+```
+
+---
+
 ## Configuration
 
 Your `config.toml` file is crucial in customizing the Zola site.

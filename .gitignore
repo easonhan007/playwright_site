@@ -9,6 +9,7 @@ scripts/__pycache__/
 node_modules/
 public/
 target/
+newblog
 
 # Mac
 .DS_Store
