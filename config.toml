@@ -50,10 +50,10 @@ favicon_svg = "/img/yin-yang.svg"
 copyright = "Copyright {year} by 重定向学院"
 
 # The description shown on banner
-site_description = "playwright 教程, playwright 中文,  playwright 使用, playwright 是什么, playwright 爬虫"
+site_description = "做中文圈最实用、最新的 Playwright 资源分享"
 
 # The quote shown on banner
-quote = { text = "做最好的playwright中文教程及资源站", author = "" }
+quote = { text = "自动化不是取代测试，而是解放测试者，让人类去探索未知。", author = "Playwright 中文站 " }
 
 # The main navigation menu
 menu_pages = [

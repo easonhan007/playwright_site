@@ -22,6 +22,16 @@ Playwright最新推出了[playwright cli](https://github.com/microsoft/playwrigh
 
 下面来看一下Playwright cli的真正实力吧。
 
+## 视频教程
+
+### B站
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=115994936743793&bvid=BV11t64BJEDZ&cid=35751857376&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+### YouTube
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vska068YCs4?si=n3jgUZ36FEz253QZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## 前置条件
 
 我使用的是[claude code](https://github.com/anthropics/claude-code)和 [GLM4.7](https://docs.bigmodel.cn/cn/guide/models/text/glm-4.7)模型。
