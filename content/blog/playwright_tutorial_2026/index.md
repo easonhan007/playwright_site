@@ -18,6 +18,14 @@ Selenium 系方案在面对现代网站的指纹检测、行为分析、WAF 时�
 
 我们的测试对象是开源自托管笔记服务 **Memos**（https://github.com/usememos/memos）。
 
+## B站视频
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=115977303887884&bvid=BV1L66FB4EiV&cid=35683306523&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+## YouTube视频
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dorzYojypAA?si=3a_YGIFF72O2r_vV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## 为什么选 Memos 做 demo？
 
 - 到2026年1月，它已经有 **56k+ stars**，社区非常活跃（最新稳定版 v0.25.3，2025年11月发布）
@@ -451,11 +459,3 @@ with sync_playwright() as playwright:
     run(playwright)
 
 ```
-
-## B站视频
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=115977303887884&bvid=BV1L66FB4EiV&cid=35683306523&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
-## YouTube视频
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dorzYojypAA?si=3a_YGIFF72O2r_vV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
