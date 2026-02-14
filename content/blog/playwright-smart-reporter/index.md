@@ -1,7 +1,7 @@
 +++
 date = 2026-02-14
 title = " 使用 playwright-smart-reporter 打造智能、带AI分析的测试报告 "
-description = " 目标读者：已经会使用 Playwright 写测试、希望获得比官方 HTML reporter 更智能、更现代的报告体验的同学。 "
+description = "一个专为 Playwright 测试框架打造的智能 HTML 报告模版。"
 authors = ["乙醇"]
 [taxonomies]
 tags = ["playwright基础", "原创", "测试报告"]
@@ -10,8 +10,14 @@ math = false
 image = "2026-02-14-19-33-57.png"
 +++
 
+playwright-smart-reporter 是一个专为 Playwright 测试框架打造的智能 HTML 报告工具。
+
+它比 Playwright 自带的 HTML reporter 更现代化、更智能，主要目标是帮助团队更快定位问题、减少调试时间、提升测试稳定性。
+
 仓库地址（持续更新）：  
 [https://github.com/qa-gary-parker/playwright-smart-reporter](https://github.com/qa-gary-parker/playwright-smart-reporter)
+
+项目支持python和javascript，我们先拿js版本来体验一下。
 
 #### 第一步：安装
 
