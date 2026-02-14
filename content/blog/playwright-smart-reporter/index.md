@@ -4,7 +4,7 @@ title = " 使用 playwright-smart-reporter 打造智能、带AI分析的测试�
 description = "一个专为 Playwright 测试框架打造的智能 HTML 报告模版。"
 authors = ["乙醇"]
 [taxonomies]
-tags = ["playwright基础", "原创", "测试报告"]
+tags = ["playwright基础", "原创", "测试报告", "AI"]
 [extra]
 math = false
 image = "2026-02-14-19-33-57.png"
