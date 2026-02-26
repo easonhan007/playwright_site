@@ -1,7 +1,7 @@
 +++
 date = 2026-02-15
-title = ""
-description = ""
+title = "Playwright 测试最佳实践：Fixtures + Page Object Model 完美结合"
+description = "python版本"
 authors = ["乙醇"]
 [taxonomies]
 tags = ["playwright进阶", "原创", "Fixture", "Page Object"]
